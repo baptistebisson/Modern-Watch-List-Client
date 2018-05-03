@@ -1,0 +1,1126 @@
+ DONE  Compiled successfully in 301ms13:41:02
+
+ WAIT  Compiling...13:41:29
+
+ DONE  Compiled successfully in 290ms13:41:29
+
+ WAIT  Compiling...13:43:31
+
+ DONE  Compiled successfully in 379ms13:43:32
+
+ WAIT  Compiling...13:46:57
+
+ DONE  Compiled successfully in 735ms13:46:58
+
+
+> moviewatchlist@1.0.0 dev /var/www/moviewatchlist
+> node build/dev-server.js
+
+> Starting dev server...
+ DONE  Compiled successfully in 7551ms10:14:20
+
+> Listening at http://localhost:83
+
+(node:20596) UnhandledPromiseRejectionWarning: Error: Exited with code 3
+    at ChildProcess.cp.once.code (/var/www/moviewatchlist/node_modules/opn/index.js:84:13)
+    at Object.onceWrapper (events.js:219:13)
+    at ChildProcess.emit (events.js:127:13)
+    at maybeClose (internal/child_process.js:936:16)
+    at Socket.stream.socket.on (internal/child_process.js:353:11)
+    at Socket.emit (events.js:127:13)
+    at Pipe._handle.close [as _onclose] (net.js:558:12)
+(node:20596) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:20596) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+ WAIT  Compiling...12:09:32
+
+ DONE  Compiled successfully in 1297ms12:09:34
+
+ WAIT  Compiling...12:10:13
+
+ DONE  Compiled successfully in 843ms12:10:14
+
+ WAIT  Compiling...12:13:53
+
+ DONE  Compiled successfully in 802ms12:13:54
+
+ WAIT  Compiling...12:18:20
+
+ ERROR  Failed to compile with 1 errors12:18:21
+
+ error  in ./src/components/Home.vue
+
+Syntax Error: Unexpected token (220:6)
+
+  218 |           var notyf = new Notyf();
+  219 |           notyf.
+> 220 |       },
+      |       ^
+  221 | 
+  222 |   },
+  223 |   computed: {
+
+
+
+ @ ./src/components/Home.vue 4:0-104 5:0-117
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...12:18:52
+
+ DONE  Compiled successfully in 763ms12:18:53
+
+ WAIT  Compiling...13:47:41
+
+ DONE  Compiled successfully in 837ms13:47:42
+
+ WAIT  Compiling...13:48:03
+
+ DONE  Compiled successfully in 804ms13:48:05
+
+ WAIT  Compiling...13:52:22
+
+ DONE  Compiled successfully in 607ms13:52:23
+
+ WAIT  Compiling...13:52:45
+
+ DONE  Compiled successfully in 624ms13:52:46
+
+ WAIT  Compiling...13:54:29
+
+ DONE  Compiled successfully in 812ms13:54:30
+
+ WAIT  Compiling...13:58:43
+
+ DONE  Compiled successfully in 970ms13:58:44
+
+ WAIT  Compiling...13:59:32
+
+ DONE  Compiled successfully in 716ms13:59:33
+
+ WAIT  Compiling...14:00:23
+
+ DONE  Compiled successfully in 621ms14:00:24
+
+ WAIT  Compiling...14:01:37
+
+ DONE  Compiled successfully in 399ms14:01:38
+
+ WAIT  Compiling...14:02:25
+
+ DONE  Compiled successfully in 362ms14:02:26
+
+ WAIT  Compiling...14:02:28
+
+ DONE  Compiled successfully in 350ms14:02:28
+
+ WAIT  Compiling...14:02:53
+
+ DONE  Compiled successfully in 330ms14:02:54
+
+ WAIT  Compiling...14:02:54
+
+ DONE  Compiled successfully in 278ms14:02:55
+
+ WAIT  Compiling...14:02:57
+
+ DONE  Compiled successfully in 243ms14:02:58
+
+ WAIT  Compiling...14:03:03
+
+ DONE  Compiled successfully in 289ms14:03:04
+
+ WAIT  Compiling...14:03:05
+
+ DONE  Compiled successfully in 304ms14:03:06
+
+ WAIT  Compiling...14:03:13
+
+ DONE  Compiled successfully in 275ms14:03:14
+
+ WAIT  Compiling...14:03:15
+
+ DONE  Compiled successfully in 280ms14:03:16
+
+ WAIT  Compiling...14:03:19
+
+ DONE  Compiled successfully in 402ms14:03:20
+
+ WAIT  Compiling...14:03:25
+
+ DONE  Compiled successfully in 373ms14:03:26
+
+ WAIT  Compiling...14:03:31
+
+ DONE  Compiled successfully in 234ms14:03:32
+
+ WAIT  Compiling...14:04:09
+
+ DONE  Compiled successfully in 375ms14:04:10
+
+ WAIT  Compiling...14:04:13
+
+ DONE  Compiled successfully in 338ms14:04:14
+
+ WAIT  Compiling...14:04:57
+
+ DONE  Compiled successfully in 362ms14:04:58
+
+ WAIT  Compiling...14:04:58
+
+ DONE  Compiled successfully in 318ms14:04:59
+
+ WAIT  Compiling...14:07:31
+
+ DONE  Compiled successfully in 610ms14:07:32
+
+ WAIT  Compiling...14:35:41
+
+ DONE  Compiled successfully in 1078ms14:35:42
+
+ WAIT  Compiling...14:59:55
+
+ DONE  Compiled successfully in 823ms14:59:56
+
+ WAIT  Compiling...15:01:09
+
+ DONE  Compiled successfully in 720ms15:01:10
+
+ WAIT  Compiling...15:08:01
+
+ DONE  Compiled successfully in 837ms15:08:02
+
+ WAIT  Compiling...15:15:06
+
+ DONE  Compiled successfully in 856ms15:15:07
+
+ WAIT  Compiling...15:16:02
+
+ DONE  Compiled successfully in 711ms15:16:03
+
+ WAIT  Compiling...15:22:42
+
+ DONE  Compiled successfully in 820ms15:22:43
+
+ WAIT  Compiling...15:23:40
+
+ DONE  Compiled successfully in 850ms15:23:41
+
+ WAIT  Compiling...15:24:24
+
+ DONE  Compiled successfully in 544ms15:24:25
+
+ WAIT  Compiling...15:43:42
+
+ DONE  Compiled successfully in 611ms15:43:43
+
+ WAIT  Compiling...15:45:01
+
+ DONE  Compiled successfully in 644ms15:45:02
+
+ WAIT  Compiling...15:49:03
+
+ DONE  Compiled successfully in 770ms15:49:04
+
+ WAIT  Compiling...15:59:32
+
+ DONE  Compiled successfully in 762ms15:59:33
+
+ WAIT  Compiling...16:02:10
+
+ DONE  Compiled successfully in 672ms16:02:11
+
+ WAIT  Compiling...16:03:15
+
+ DONE  Compiled successfully in 971ms16:03:17
+
+ WAIT  Compiling...16:07:01
+
+ DONE  Compiled successfully in 987ms16:07:02
+
+ WAIT  Compiling...16:12:02
+
+ DONE  Compiled successfully in 994ms16:12:03
+
+ WAIT  Compiling...16:30:42
+
+ DONE  Compiled successfully in 994ms16:30:43
+
+ WAIT  Compiling...16:31:12
+
+ DONE  Compiled successfully in 663ms16:31:13
+
+ WAIT  Compiling...16:31:47
+
+ DONE  Compiled successfully in 956ms16:31:48
+
+ WAIT  Compiling...16:33:14
+
+ DONE  Compiled successfully in 981ms16:33:15
+
+ WAIT  Compiling...16:34:16
+
+ DONE  Compiled successfully in 875ms16:34:17
+
+ WAIT  Compiling...16:34:25
+
+ DONE  Compiled successfully in 628ms16:34:26
+
+ WAIT  Compiling...16:35:00
+
+ DONE  Compiled successfully in 761ms16:35:01
+
+ WAIT  Compiling...16:36:28
+
+ DONE  Compiled successfully in 958ms16:36:29
+
+ WAIT  Compiling...16:41:55
+
+ DONE  Compiled successfully in 962ms16:41:56
+
+ WAIT  Compiling...16:42:14
+
+ DONE  Compiled successfully in 712ms16:42:15
+
+ WAIT  Compiling...16:42:34
+
+ DONE  Compiled successfully in 618ms16:42:35
+
+ WAIT  Compiling...16:42:45
+
+ DONE  Compiled successfully in 624ms16:42:46
+
+ WAIT  Compiling...16:44:38
+
+ DONE  Compiled successfully in 944ms16:44:39
+
+ WAIT  Compiling...16:45:10
+
+ DONE  Compiled successfully in 955ms16:45:11
+
+ WAIT  Compiling...16:46:23
+
+ DONE  Compiled successfully in 749ms16:46:24
+
+ WAIT  Compiling...16:47:19
+
+ DONE  Compiled successfully in 745ms16:47:20
+
+ WAIT  Compiling...16:50:02
+
+ DONE  Compiled successfully in 719ms16:50:03
+
+ WAIT  Compiling...16:50:57
+
+ DONE  Compiled successfully in 667ms16:50:58
+
+ WAIT  Compiling...16:51:17
+
+ DONE  Compiled successfully in 697ms16:51:18
+
+ WAIT  Compiling...16:51:35
+
+ DONE  Compiled successfully in 711ms16:51:36
+
+ WAIT  Compiling...16:52:30
+
+ DONE  Compiled successfully in 621ms16:52:31
+
+ WAIT  Compiling...16:53:13
+
+ DONE  Compiled successfully in 708ms16:53:14
+
+ WAIT  Compiling...16:53:34
+
+ DONE  Compiled successfully in 701ms16:53:35
+
+ WAIT  Compiling...16:54:35
+
+ DONE  Compiled successfully in 598ms16:54:36
+
+ WAIT  Compiling...16:56:04
+
+ ERROR  Failed to compile with 1 errors16:56:04
+
+ error  in ./src/components/Home.vue
+
+Syntax Error: Unexpected token (261:29)
+
+  259 |                 
+  260 |                 if (this.filter.date_added === false) {
+> 261 |                     result = return result.sort((a, b) => new Date(b.pivot.date_added) - new Date(a.pivot.date_added));
+      |                              ^
+  262 |                 }
+  263 |                 
+  264 |                 return result;
+
+
+
+ @ ./src/components/Home.vue 4:0-104 5:0-117
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...16:56:13
+
+ DONE  Compiled successfully in 837ms16:56:14
+
+ WAIT  Compiling...16:57:47
+
+ DONE  Compiled successfully in 702ms16:57:48
+
+ WAIT  Compiling...16:58:00
+
+ DONE  Compiled successfully in 488ms16:58:01
+
+ WAIT  Compiling...16:58:48
+
+ DONE  Compiled successfully in 955ms16:58:49
+
+ WAIT  Compiling...16:59:35
+
+ DONE  Compiled successfully in 869ms16:59:36
+
+ WAIT  Compiling...17:00:46
+
+ DONE  Compiled successfully in 747ms17:00:47
+
+ WAIT  Compiling...15:52:24
+
+ ERROR  Failed to compile with 1 errors15:52:25
+
+ error  in ./src/components/Movie/Popular.vue
+
+Syntax Error: Unexpected token (52:8)
+
+  50 |         data () {
+  51 | 		    movies: [],
+> 52 |         },
+     |         ^
+  53 | 	},
+  54 | 
+
+
+
+ @ ./src/components/Movie/Popular.vue 4:0-110 5:0-123
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...15:53:15
+
+ ERROR  Failed to compile with 1 errors15:53:16
+
+ error  in ./src/components/Movie/Popular.vue
+
+Syntax Error: Unexpected token (52:8)
+
+  50 |         data () {
+  51 | 		    movies: [],
+> 52 |         },
+     |         ^
+  53 | 	},
+  54 | 
+
+
+
+ @ ./src/components/Movie/Popular.vue 4:0-110 5:0-123
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...15:53:35
+
+ ERROR  Failed to compile with 1 errors15:53:35
+
+ error  in ./src/components/Movie/Popular.vue
+
+Syntax Error: Unexpected token (52:8)
+
+  50 |         data () {
+  51 | 		    movies: [],
+> 52 |         },
+     |         ^
+  53 | 	},
+  54 | 
+
+
+
+ @ ./src/components/Movie/Popular.vue 4:0-110 5:0-123
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...15:54:09
+
+ ERROR  Failed to compile with 1 errors15:54:09
+
+ error  in ./src/components/Movie/Popular.vue
+
+Syntax Error: Unexpected token, expected ; (55:2)
+
+  53 |             }
+  54 |         },
+> 55 | 	},
+     | 	 ^
+  56 | 
+
+
+
+ @ ./src/components/Movie/Popular.vue 4:0-110 5:0-123
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...15:54:39
+
+ DONE  Compiled successfully in 937ms15:54:40
+
+ WAIT  Compiling...15:56:50
+
+ DONE  Compiled successfully in 448ms15:56:51
+
+ WAIT  Compiling...16:03:52
+
+ DONE  Compiled successfully in 636ms16:03:52
+
+ WAIT  Compiling...16:28:56
+
+ DONE  Compiled successfully in 451ms16:28:57
+
+ WAIT  Compiling...16:32:16
+
+ DONE  Compiled successfully in 656ms16:32:17
+
+ WAIT  Compiling...16:33:47
+
+ DONE  Compiled successfully in 669ms16:33:47
+
+ WAIT  Compiling...16:35:05
+
+ DONE  Compiled successfully in 588ms16:35:05
+
+ WAIT  Compiling...16:35:29
+
+ DONE  Compiled successfully in 551ms16:35:30
+
+ WAIT  Compiling...16:37:18
+
+ DONE  Compiled successfully in 478ms16:37:19
+
+ WAIT  Compiling...16:37:55
+
+ DONE  Compiled successfully in 763ms16:37:56
+
+ WAIT  Compiling...16:38:04
+
+ DONE  Compiled successfully in 514ms16:38:04
+
+ WAIT  Compiling...16:38:24
+
+ DONE  Compiled successfully in 442ms16:38:25
+
+ WAIT  Compiling...16:40:42
+
+ DONE  Compiled successfully in 354ms16:40:43
+
+ WAIT  Compiling...16:41:26
+
+ DONE  Compiled successfully in 445ms16:41:27
+
+ WAIT  Compiling...16:42:00
+
+ DONE  Compiled successfully in 508ms16:42:01
+
+ WAIT  Compiling...16:43:40
+
+ DONE  Compiled successfully in 474ms16:43:40
+
+ WAIT  Compiling...16:44:37
+
+ DONE  Compiled successfully in 435ms16:44:38
+
+ WAIT  Compiling...16:45:27
+
+ DONE  Compiled successfully in 431ms16:45:28
+
+ WAIT  Compiling...16:45:39
+
+ DONE  Compiled successfully in 457ms16:45:40
+
+ WAIT  Compiling...16:52:28
+
+ DONE  Compiled successfully in 412ms16:52:29
+
+ WAIT  Compiling...16:59:01
+
+ DONE  Compiled successfully in 627ms16:59:02
+
+ WAIT  Compiling...17:00:13
+
+ DONE  Compiled successfully in 637ms17:00:14
+
+ WAIT  Compiling...17:01:07
+
+ DONE  Compiled successfully in 468ms17:01:08
+
+ WAIT  Compiling...17:03:29
+
+ DONE  Compiled successfully in 464ms17:03:30
+
+ WAIT  Compiling...17:05:04
+
+ DONE  Compiled successfully in 490ms17:05:05
+
+ WAIT  Compiling...17:05:23
+
+ DONE  Compiled successfully in 443ms17:05:23
+
+ WAIT  Compiling...17:05:36
+
+ DONE  Compiled successfully in 384ms17:05:37
+
+ WAIT  Compiling...17:05:52
+
+ DONE  Compiled successfully in 414ms17:05:53
+
+ WAIT  Compiling...17:06:47
+
+ ERROR  Failed to compile with 1 errors17:06:48
+
+ error  in ./src/components/Sidebar.vue
+
+Syntax Error: Unexpected token (35:16)
+
+  33 |         $('.hasChildren').on('click', function(e) {
+  34 |             var childrens = $('#sidebar_' + $(e.target).attr('data-id'));
+> 35 |             if () {
+     |                 ^
+  36 | 
+  37 |             }
+  38 |             console.log(test)
+
+
+
+ @ ./src/components/Sidebar.vue 4:0-107 5:0-120
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...17:07:55
+
+ ERROR  Failed to compile with 1 errors17:07:56
+
+ error  in ./src/components/Sidebar.vue
+
+Syntax Error: Unexpected token (37:16)
+
+  35 |         $('.hasChildren').on('click', function(e) {
+  36 |             var childrens = $('#sidebar_' + $(e.target).attr('data-id'));
+> 37 |             if () {
+     |                 ^
+  38 | 
+  39 |             }
+  40 |             console.log(test)
+
+
+
+ @ ./src/components/Sidebar.vue 4:0-107 5:0-120
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...17:08:33
+
+ DONE  Compiled successfully in 1194ms17:08:35
+
+ WAIT  Compiling...17:09:41
+
+ DONE  Compiled successfully in 594ms17:09:42
+
+ WAIT  Compiling...17:10:09
+
+ DONE  Compiled successfully in 462ms17:10:10
+
+ WAIT  Compiling...17:10:58
+
+ DONE  Compiled successfully in 439ms17:10:59
+
+ WAIT  Compiling...17:11:20
+
+ DONE  Compiled successfully in 436ms17:11:20
+
+ WAIT  Compiling...17:11:41
+
+ ERROR  Failed to compile with 1 errors17:11:42
+
+ error  in ./src/components/Sidebar.vue
+
+Syntax Error: Unexpected token, expected ( (38:8)
+
+  36 |             var children = $(e.target).find('li');
+  37 |             for
+> 38 |         });
+     |         ^
+  39 |     },
+  40 |     computed: {
+  41 |         open () {
+
+
+
+ @ ./src/components/Sidebar.vue 4:0-107 5:0-120
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...17:12:15
+
+ DONE  Compiled successfully in 1333ms17:12:17
+
+ WAIT  Compiling...17:13:47
+
+ DONE  Compiled successfully in 611ms17:13:48
+
+ WAIT  Compiling...15:02:50
+
+ DONE  Compiled successfully in 844ms15:02:51
+
+ WAIT  Compiling...15:03:23
+
+ DONE  Compiled successfully in 912ms15:03:24
+
+ WAIT  Compiling...15:06:53
+
+ DONE  Compiled successfully in 661ms15:06:54
+
+ WAIT  Compiling...15:09:28
+
+ DONE  Compiled successfully in 971ms15:09:29
+
+ WAIT  Compiling...15:10:56
+
+ DONE  Compiled successfully in 800ms15:10:57
+
+ WAIT  Compiling...15:11:29
+
+ DONE  Compiled successfully in 675ms15:11:30
+
+ WAIT  Compiling...15:11:52
+
+ DONE  Compiled successfully in 680ms15:11:53
+
+ WAIT  Compiling...15:12:05
+
+ DONE  Compiled successfully in 584ms15:12:06
+
+ WAIT  Compiling...15:13:17
+
+ DONE  Compiled successfully in 1017ms15:13:19
+
+ WAIT  Compiling...15:14:14
+
+ DONE  Compiled successfully in 949ms15:14:15
+
+ WAIT  Compiling...15:15:37
+
+ DONE  Compiled successfully in 707ms15:15:38
+
+ WAIT  Compiling...15:16:35
+
+ DONE  Compiled successfully in 893ms15:16:36
+
+ WAIT  Compiling...15:16:52
+
+ DONE  Compiled successfully in 694ms15:16:53
+
+ WAIT  Compiling...15:18:23
+
+ DONE  Compiled successfully in 727ms15:18:24
+
+ WAIT  Compiling...15:18:24
+
+ DONE  Compiled successfully in 596ms15:18:25
+
+ WAIT  Compiling...15:18:58
+
+ DONE  Compiled successfully in 613ms15:18:59
+
+ WAIT  Compiling...15:19:20
+
+ DONE  Compiled successfully in 898ms15:19:21
+
+ WAIT  Compiling...15:20:58
+
+ DONE  Compiled successfully in 869ms15:20:59
+
+ WAIT  Compiling...15:21:04
+
+ DONE  Compiled successfully in 666ms15:21:05
+
+ WAIT  Compiling...15:21:26
+
+ DONE  Compiled successfully in 652ms15:21:27
+
+ WAIT  Compiling...15:22:08
+
+ DONE  Compiled successfully in 841ms15:22:10
+
+ WAIT  Compiling...15:23:16
+
+ DONE  Compiled successfully in 961ms15:23:17
+
+ WAIT  Compiling...15:37:47
+
+ DONE  Compiled successfully in 909ms15:37:48
+
+ WAIT  Compiling...15:39:50
+
+ DONE  Compiled successfully in 679ms15:39:51
+
+ WAIT  Compiling...15:40:12
+
+ DONE  Compiled successfully in 660ms15:40:13
+
+ WAIT  Compiling...15:40:22
+
+ DONE  Compiled successfully in 643ms15:40:23
+
+ WAIT  Compiling...15:42:56
+
+ DONE  Compiled successfully in 1004ms15:42:58
+
+ WAIT  Compiling...15:43:15
+
+ DONE  Compiled successfully in 700ms15:43:16
+
+ WAIT  Compiling...15:43:24
+
+ DONE  Compiled successfully in 665ms15:43:25
+
+ WAIT  Compiling...15:46:14
+
+ DONE  Compiled successfully in 696ms15:46:15
+
+ WAIT  Compiling...15:47:07
+
+ DONE  Compiled successfully in 414ms15:47:08
+
+ WAIT  Compiling...15:47:28
+
+ DONE  Compiled successfully in 414ms15:47:28
+
+ WAIT  Compiling...15:48:09
+
+ DONE  Compiled successfully in 418ms15:48:09
+
+ WAIT  Compiling...15:48:34
+
+ DONE  Compiled successfully in 380ms15:48:35
+
+ WAIT  Compiling...15:49:40
+
+ DONE  Compiled successfully in 416ms15:49:40
+
+ WAIT  Compiling...15:50:39
+
+ DONE  Compiled successfully in 414ms15:50:40
+
+ WAIT  Compiling...15:53:59
+
+ DONE  Compiled successfully in 412ms15:54:00
+
+ WAIT  Compiling...15:59:37
+
+ DONE  Compiled successfully in 588ms15:59:38
+
+ WAIT  Compiling...16:00:22
+
+ DONE  Compiled successfully in 391ms16:00:23
+
+ WAIT  Compiling...16:03:00
+
+ DONE  Compiled successfully in 701ms16:03:01
+
+ WAIT  Compiling...16:03:14
+
+ DONE  Compiled successfully in 310ms16:03:15
+
+ WAIT  Compiling...16:07:31
+
+ ERROR  Failed to compile with 1 errors16:07:32
+
+ error  in ./src/components/Movie/Popular.vue
+
+(Emitted value instead of an instance of Error) 
+  Error compiling template:
+  
+  <div v-if="movies" class="section_movies">
+      <h2 v-if="movies.length == 1">Popular movie: {{ movies.length }}</h2>
+      <h2 v-else>Popular movies: {{ movies.length ? movies.length : 0 }}</h2>
+  
+      <div class="cards_list" v-bind:class="{ not-seen: isActive}">
+          <div class="item" v-for="(value, key, index) in movies">
+              <div class="movie_card" :data-id="value.id">
+                  <div class="cover">
+                      <div class="round hide">
+                          <input type="checkbox" :id="'checkbox'+value.id" id="checkbox" />
+                          <label for="checkbox"></label>
+                      </div>
+                      <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
+                      <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
+                          <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/'+value.image_small"
+                                        v-bind:src-placeholder="'http://api.baptiste-bisson.com/img/'+value.image_small"/>
+                      </router-link>
+                  </div>
+                  <article>
+                      <h1>{{ value.title }}</h1>
+                      <span>{{ value.release_date.slice(0,4) }}</span>
+                  </article>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  - invalid expression: Unexpected token - in
+
+    { not-seen: isActive}
+
+  Raw expression: v-bind:class="{ not-seen: isActive}"
+
+
+
+ @ ./src/components/Movie/Popular.vue 7:0-370
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...16:08:27
+
+ DONE  Compiled successfully in 402ms16:08:28
+
+ WAIT  Compiling...16:08:57
+
+ DONE  Compiled successfully in 362ms16:08:57
+
+ WAIT  Compiling...16:09:11
+
+ ERROR  Failed to compile with 1 errors16:09:12
+
+ error  in ./src/components/Home.vue
+
+(Emitted value instead of an instance of Error) 
+  Error compiling template:
+  
+  <div>
+      <div class="row heading-slider justify-content-center">
+          <div class="form find-movie">
+              <input id="search-movie" type="text" pattern=".{3,}" name="movie" v-on:keyup="searchMovie" v-model="movieName" placeholder="Search a movie ...">
+              <div class="selector">
+                  <span class="text" v-bind:class="{ active: !search_type }">Local</span>
+                  <label class="switch" alt="Find online or local movie">
+                      <input id="search_type" type="checkbox" v-model="search_type">
+                      <span class="slider round"></span>
+                  </label>
+                  <span class="text" v-bind:class="{ active: search_type }">IMDB</span>
+              </div>
+          </div>
+      </div>
+      <div class="section_result">
+          <div id="close_section_result"><i class="material-icons" @click="hideSearch">close</i></div>
+          <div class="cards_list result_search">
+              <div class="item-1" v-for="(value, key, index) in moviesFound.slice(0,4)" :data-key="'movie_'+key" v-on:click="addMovie(value)">
+                  <div class="movie_card">
+                      <img v-if="value.poster_path !== null" :src="'https://image.tmdb.org/t/p/w185'+ value.poster_path" alt="">
+                      <div v-else class="img_null"></div>
+                      <article>
+                          <h1>{{ value.original_title }}</h1>
+                          <span>{{ value.release_date.slice(0,4) }}</span>
+                      </article>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div v-if="filteredMovies" class="section_movies">
+          <h2 v-if="filteredMovies.length == 1">{{ filteredMovies.length }} movie</h2>
+          <h2 v-else>{{ filteredMovies.length ? filteredMovies.length : 0 }} movies</h2>
+  
+          <div v-if="filteredMovies.length > 1" class="filters">
+              <label class="check">Date added
+                  <input type="checkbox" v-model="filter.date_added">
+                  <span class="checkmark"></span>
+              </label>
+              <label class="check">Rate
+                  <input type="checkbox" v-model="filter.rate">
+                  <span class="checkmark"></span>
+              </label>
+              <label class="check">Movie date
+                  <input type="checkbox" v-model="filter.movie_date">
+                  <span class="checkmark"></span>
+              </label>
+              <span @click="refresh()" class="refresh"><i class="material-icons">refresh</i></span>
+          </div>
+  
+          <div class="cards_list">
+              <div class="item" v-for="(value, key, index) in filteredMovies" v-bind:class="{ 'not-seen': value.pivot.rating === 0}>
+                  <div class="movie_card" :data-id="value.id">
+                      <div class="cover">
+                          <div class="round hide">
+                              <input type="checkbox" :id="'checkbox'+value.id" id="checkbox" />
+                              <label for="checkbox"></label>
+                          </div>
+                          <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
+                          <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
+                              <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/'+value.image_small"
+                                            v-bind:src-placeholder="'http://api.baptiste-bisson.com/img/'+value.image_small"/>
+                          </router-link>
+                      </div>
+                      <article>
+                          <h1>{{ value.title }}</h1>
+                          <span>{{ value.release_date.slice(0,4) }}</span>
+                      </article>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="settings_movie hide">
+          <div class="header">
+              <span class="title">{{ clicked_movie.title }}</span>
+          </div>
+          <div class="content">
+              <ul>
+                  <li @click="deleteMovie(clicked_movie)" ><i class="material-icons">delete</i> Delete</li>
+                  <li @click="moveMovie(clicked_movie)"><i class="material-icons">reorder</i> Move</li>
+              </ul>
+              <span @click="hideSettings()" class="close_settings"><i class="material-icons">close</i></span>
+          </div>
+      </div>
+  </div>
+  
+  - Component template should contain exactly one root element. If you are using v-if on multiple elements, use v-else-if to chain them instead.
+
+
+ @ ./src/components/Home.vue 7:0-361
+ @ ./src/router/index.js
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...16:09:21
+
+ DONE  Compiled successfully in 722ms16:09:22
+
+ WAIT  Compiling...16:12:29
+
+ DONE  Compiled successfully in 608ms16:12:30
+
+ WAIT  Compiling...16:15:29
+
+ DONE  Compiled successfully in 790ms16:15:30
+
+ WAIT  Compiling...16:16:27
+
+ DONE  Compiled successfully in 618ms16:16:28
+
+ WAIT  Compiling...16:20:36
+
+ DONE  Compiled successfully in 939ms16:20:37
+
+ WAIT  Compiling...16:21:10
+
+ DONE  Compiled successfully in 801ms16:21:11
+
+ WAIT  Compiling...16:21:42
+
+ DONE  Compiled successfully in 696ms16:21:43
+
+ WAIT  Compiling...16:23:53
+
+ DONE  Compiled successfully in 729ms16:23:54
+
+ WAIT  Compiling...16:38:21
+
+ DONE  Compiled successfully in 568ms16:38:21
+
+ WAIT  Compiling...16:41:30
+
+ DONE  Compiled successfully in 364ms16:41:31
+
+ WAIT  Compiling...16:48:07
+
+ DONE  Compiled successfully in 782ms16:48:08
+
+ ERROR  Failed to compile with 1 errors16:55:07
+
+ error  in ./src/components/AppFooter.vue
+
+Module build failed: Error: ENOENT: no such file or directory, open '/var/www/moviewatchlist/src/components/AppFooter.vue'
+
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue 15:0-51
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ ERROR  Failed to compile with 2 errors16:55:22
+
+ error  in ./src/components/AppFooter.vue
+
+Module build failed: Error: ENOENT: no such file or directory, open '/var/www/moviewatchlist/src/components/AppFooter.vue'
+
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue 15:0-51
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ error  in ./src/components/AppNav.vue
+
+Module build failed: Error: ENOENT: no such file or directory, open '/var/www/moviewatchlist/src/components/AppNav.vue'
+
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue 14:0-45
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ ERROR  Failed to compile with 3 errors16:55:38
+
+ error  in ./src/components/AppFooter.vue
+
+Module build failed: Error: ENOENT: no such file or directory, open '/var/www/moviewatchlist/src/components/AppFooter.vue'
+
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue 15:0-51
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ error  in ./src/components/AppNav.vue
+
+Module build failed: Error: ENOENT: no such file or directory, open '/var/www/moviewatchlist/src/components/AppNav.vue'
+
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue 14:0-45
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ error  in ./src/components/Sidebar.vue
+
+Module build failed: Error: ENOENT: no such file or directory, open '/var/www/moviewatchlist/src/components/Sidebar.vue'
+
+ @ ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./src/App.vue 16:0-47
+ @ ./src/App.vue
+ @ ./src/main.js
+ @ multi ./build/dev-client ./src/main.js
+
+ WAIT  Compiling...16:56:36
+
+ DONE  Compiled successfully in 1306ms16:56:38
+
+ WAIT  Compiling...21:40:02
+
+ DONE  Compiled successfully in 846ms21:40:03
+
+ WAIT  Compiling...21:40:14
+
+ DONE  Compiled successfully in 864ms21:40:16
+
