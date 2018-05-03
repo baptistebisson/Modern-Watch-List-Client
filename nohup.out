@@ -1124,3 +1124,11 @@ Module build failed: Error: ENOENT: no such file or directory, open '/var/www/mo
 
  DONE  Compiled successfully in 864ms21:40:16
 
+ WAIT  Compiling...21:44:01
+
+ DONE  Compiled successfully in 777ms21:44:03
+
+ WAIT  Compiling...21:44:03
+
+ DONE  Compiled successfully in 582ms21:44:04
+
