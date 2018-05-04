@@ -53,6 +53,12 @@
                 <div class="item" v-for="(value, key, index) in filteredMovies">
                     <div class="movie_card" :data-id="value.id">
                         <div class="cover">
+                            <span v-if="value.pivot.rating === 0 && !upcoming(value.release_date)" class="ribbon-wrapper">
+                                <span class="ribbon new">New</span>
+                            </span>
+                            <span v-else-if="upcoming(value.release_date)" class="ribbon-wrapper">
+                                <span class="ribbon upcoming">Upcoming</span>
+                            </span>
                             <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
                             <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
                                 <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/'+value.image_small"
@@ -61,9 +67,7 @@
                         </div>
                         <article>
                             <h1>{{ value.title }}</h1>
-                            <span>{{ value.release_date.slice(0,4) }}
-                                <span title="Movie not seen" class="not-seen" v-if="value.pivot.rating === 0"><i class="material-icons">visibility_off</i></span>
-                            </span>
+                            <span>{{ value.release_date.slice(0,4) }}</span>
                         </article>
                     </div>
                 </div>
@@ -219,6 +223,9 @@
               store.dispatch('fetchData', {refresh: true});
               const notyf = new Notyf();
               notyf.confirm('Refreshing list')
+          },
+          upcoming (date) {
+              return new Date(date) > new Date();
           }
 
       },

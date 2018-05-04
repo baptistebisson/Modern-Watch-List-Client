@@ -430,7 +430,7 @@ h1 {
             margin: 0;
             color: #333;
         }
-        span {
+        span:not(.ribbon-wrapper):not(.ribbon) {
             font-size: 12px;
             font-weight: bold;
             color: #999;
@@ -1150,6 +1150,43 @@ input:checked + .slider:before {
 .not-seen i {
     font-size: 16px;
     opacity: 0.9;
+}
+
+.ribbon-wrapper {
+    width: 85px;
+    height: 88px;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+
+    .ribbon {
+        color: #fff;
+        text-align: center;
+        text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(-45deg);
+        position: absolute;
+        padding: 0;
+        left: -37px;
+        font-size: 12px;
+        line-height: 20px;
+        top: 13px;
+        width: 126px;
+        
+        &.new {
+            background-color: $main-color;
+        }
+        
+        &.upcoming {
+            background-color: #47b0e0;
+        }
+    }
 }
 
 // Mobile
