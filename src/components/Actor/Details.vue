@@ -119,7 +119,7 @@ export default {
         getDetails(api_id) {
             this.$http.get('https://api.themoviedb.org/3/person/' + api_id + '/movie_credits', {
                 params: {
-                    api_key: "MOVIEKEY",
+                    api_key: "51fa59f0dc58a632ea9415c9547aa49d",
                     language: "en-US",
                 }
             }).then((response) => {

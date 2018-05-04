@@ -114,22 +114,15 @@
           document.body.className = ''
       },
       methods: {
-          searchMovie: debounce(function (e) {
+          searchMovie: debounce(function () {
               const name = this.movieName;
 
               if (this.movieName.length >= 3) {
                   this.loader = true
                   this.infoError = false
-                  this.$http.get('https://api.themoviedb.org/3/search/movie', {
-                      params: {
-                          api_key: 'MOVIE KEY',
-                          language: 'en-US',
-                          query: name,
-                          page: 1,
-                          include_adult: false
-                      }
+                  this.$http.post('http://api.baptiste-bisson.com/movie/search', {
+                      title: name,
                   }).then((response) => {
-                      this.moviesFound = [];
                       this.moviesFound = response.body.results;
                       $('.section_result').addClass('show')
                   }, () => {

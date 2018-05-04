@@ -17,15 +17,17 @@
                     <div class="details">
                         <div class="rating">
                             <span class="rate">
-                                <i v-if="movie.user_rate == 0" class="material-icons">add</i>
-                                <i v-else-if="movie.user_rate == 1" class="material-icons">thumb_down</i>
-                                <i v-else-if="movie.user_rate == 2" class="material-icons">thumb_up</i>
-                                <i v-else-if="movie.user_rate == 3" class="material-icons">favorite</i>
+                                <i title="Not seen" v-if="movie.user_rate == 0" class="material-icons">visibility_off</i>
+                                <i title="Bad" v-else-if="movie.user_rate == 1" class="material-icons">thumb_down</i>
+                                <i title="Okay" v-else-if="movie.user_rate == 2" class="material-icons">thumbs_up_down</i>
+                                <i title="Good" v-else-if="movie.user_rate == 3" class="material-icons">thumb_up</i>
+                                <i title="Great !" v-else-if="movie.user_rate == 4" class="material-icons">favorite</i>
                             </span>
                             <div class="rate-group">
-                                <i @click="addMark(1)" class="material-icons">thumb_down</i>
-                                <i @click="addMark(2)" class="material-icons">thumb_up</i>
-                                <i @click="addMark(3)" class="material-icons">favorite</i>
+                                <i title="Bad" @click="addMark(1)" class="material-icons">thumb_down</i>
+                                <i title="Okay" @click="addMark(2)" class="material-icons">thumbs_up_down</i>
+                                <i title="Good" @click="addMark(3)" class="material-icons">thumb_up</i>
+                                <i title="Great !" @click="addMark(4)" class="material-icons">favorite</i>
                             </div>
                         </div>
                         <h1 v-if="language == 'en'" v-on:click="showFrench">{{ movie.title }}

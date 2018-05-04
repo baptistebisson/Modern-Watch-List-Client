@@ -1152,7 +1152,6 @@ input:checked + .slider:before {
     opacity: 0.9;
 }
 
-
 // Mobile
 
 @media only screen and (max-width: 990px) {
@@ -1234,7 +1233,7 @@ input:checked + .slider:before {
             }
         }
     }
-    
+
     .user {
         .form-group {
             padding: 10px;
