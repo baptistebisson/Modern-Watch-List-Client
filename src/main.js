@@ -4,14 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
-import { VLazyImagePlugin } from 'v-lazy-image'
 import VueProgressBar from 'vue-progressbar'
 import Notyf from 'notyf'
 import store from '@/store'
 
 Vue.config.productionTip = false;
 Vue.use(VueResource);
-Vue.use(VLazyImagePlugin);
 Vue.use(Notyf);
 
 // Options for progress bar

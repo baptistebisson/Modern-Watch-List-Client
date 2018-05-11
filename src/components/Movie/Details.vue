@@ -9,8 +9,7 @@
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">
                     <div class="movie_image">
-                        <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/'+movie.image_original"
-                        v-bind:src-placeholder="'http://api.baptiste-bisson.com/img/'+movie.image_small"/>
+                        <img v-bind:src="'http://api.baptiste-bisson.com/img/'+movie.image_original" v-bind:alt="movie.title">
                     </div>
                 </div>
                 <div class="col-lg-8 droite">
@@ -83,8 +82,7 @@
                 <div class="people_card" v-for="(value, key, index) in movie.actors">
                     <router-link :to="{ name: 'actor/details', params: { id: value.id }}">
                         <div class="content">
-                            <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/a/'+value.image_small"
-                            v-bind:src-placeholder="'http://api.baptiste-bisson.com/img/a/'+value.image_small"/>
+                            <img v-bind:src="'http://api.baptiste-bisson.com/img/a/'+value.image_small" alt="">
                             <article>
                                 <h1>{{ value.name }}</h1>
                                 <span>#{{ value.pivot.name }}</span>
@@ -100,8 +98,7 @@
                 <div class="people_card" v-for="(value, key, index) in movie.directors">
                     <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
                         <div class="content">
-                            <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/d/'+value.image_small"
-                            v-bind:src-placeholder="'http://api.baptiste-bisson.com/img/d/'+value.image_small"/>
+                            <img v-bind:src="'http://api.baptiste-bisson.com/img/d/'+value.image_small" alt="">
                             <article>
                                 <h1>{{ value.name }}</h1>
                             </article>
