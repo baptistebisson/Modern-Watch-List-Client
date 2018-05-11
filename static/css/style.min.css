@@ -7524,6 +7524,23 @@ input:checked + .slider:before {
     .ribbon-wrapper .ribbon.upcoming {
       background-color: #47b0e0; }
 
+#actor_credits tr {
+  display: flex;
+  align-items: center; }
+  #actor_credits tr td {
+    padding: 8px 20px 8px 10px; }
+    #actor_credits tr td.year {
+      width: 100px;
+      text-align: center;
+      font-weight: 400;
+      vertical-align: top;
+      padding-left: 20px; }
+    #actor_credits tr td.separator {
+      padding: 0;
+      color: #ccc;
+      vertical-align: top;
+      width: 30px; }
+
 @media only screen and (max-width: 990px) {
   .body-details .movie_details {
     display: contents; }

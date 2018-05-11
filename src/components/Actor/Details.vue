@@ -43,43 +43,49 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-m known_for">
-                    <h2>Also known for</h2>
+
+        <div class="row mb-4">
+            <h2 class="title_center">Also known for</h2>
+            <div class="section_actors">
+                <div class="people_card" v-for="(value, key, index) in famous_movies">
                     <div class="content">
-                        <ul>
-                            <li v-for="(value, key, index) in know_for">
-                            <div class="cover">
-                                <img v-if="value.backdrop_path !== null" :src="'https://image.tmdb.org/t/p/w185'+value.backdrop_path" alt="">
-                                <div v-else class="img_null"></div>
-                            </div>
-                            <article>
-                                <h1>{{ value.title }}</h1>
-                                <span>{{ value.release_date }}</span>
-                            </article>
-                            </li>
-                        </ul>
+                        <img v-if="value.backdrop_path !== null" :src="'https://image.tmdb.org/t/p/w185'+value.backdrop_path" alt="">
+                        <div v-else class="img_null"></div>
+                        <article>
+                            <h1>{{ value.title }}</h1>
+                            <span>#{{ value.release_date }}</span>
+                        </article>
                     </div>
                 </div>
             </div>
         </div>
 
-<!--         <div class="section_movies">
-            <div class="cards_list">
-                <div class="item-1" v-for="(value, key, index) in know_for">
-                        <div class="movie_card">
-                            <div class="cover">
-                                <img :src="'https://image.tmdb.org/t/p/w185'+value.backdrop_path" alt="">
-                            </div>
-                            <article>
-                                <h1>{{ value.title }}</h1>
-                                <span>{{ value.release_date }}</span>
-                            </article>
-                        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-5 col-sm-12 mb-4">
+                <div class="card card-m">
+                    <h2>Acting</h2>
+                    <div class="content">
+                        <table id="actor_credits">
+                            <tbody>
+                                <tr v-for="(movie) in movies">
+                                    <td v-if="movie.release_date.length !== 0" class="year">
+                                        {{ movie.release_date.slice(0, 4) }}
+                                    </td>
+                                    <td v-else class="year">—</td>
+                                    <td class="separator"><i class="material-icons">fiber_manual_record</i></td>
+                                    <td v-if="movie.character !== ''" class="role">
+                                        <b>{{ movie.title }} as</b> {{ movie.character }}
+                                    </td>
+                                    <td v-else class="role">
+                                        <b>{{ movie.title }}</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
@@ -92,12 +98,28 @@ export default {
     },
     data () {
         return {
-            actor: [],
+            actor: {
+                details: {
+                    image_original: "no_picture.jpg",
+                    birth_date: "",
+                    place_of_birth: "",
+                    biography: "",
+                    image_small: "no_picture.jpg",
+                },
+                biggest_gross: {
+                    title: "",
+                },
+                biggest_budget: {
+                    title: "",
+                },
+            },
             language: "en",
             gross: 0,
             budget: 0,
             details: [],
-            know_for: [],
+            movies: [],
+            not_released: [],
+            famous_movies: [],
         }
     },
     created: function() {
@@ -117,16 +139,28 @@ export default {
 
         },
         getDetails(api_id) {
-            this.$http.get('https://api.themoviedb.org/3/person/' + api_id + '/movie_credits', {
+            this.$http.get('http://api.baptiste-bisson.com/actor/credits', {
                 params: {
-                    api_key: "51fa59f0dc58a632ea9415c9547aa49d",
-                    language: "en-US",
+                    id: api_id
                 }
             }).then((response) => {
                 var cast = response.body.cast;
+
                 cast = cast.sort((a, b) => a.vote_count > b.vote_count ).reverse();
-                //cast = cast.sort((a, b) => a.vote_count > b.vote_count ).reverse().slice(0, 12);
-                this.know_for = cast;
+                this.famous_movies = cast.slice(0, 10);
+
+                for (var i = 0; i < Object.keys(cast).length; i++) {
+                    if (cast[i].release_date === "") {
+                        this.not_released.push(cast[i]);
+                    }
+                }
+
+                var movies = cast.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+
+                // Sort array
+                this.movies = Object.assign(movies, this.not_released);
+
+                console.log(this.not_released);
             }, () => {
 
             })
