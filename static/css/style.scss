@@ -65,6 +65,25 @@ h2 {
     font-weight: 100;
 }
 
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 10;
+    display: none;
+
+    img {
+        width: 150px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+
 .preloader {
     background: #F5F5F5;
     position: absolute;
@@ -714,6 +733,7 @@ input:checked + .slider:before {
         bottom: 0;
         background-color: $main-color;
         opacity: 0.4;
+        box-shadow: 0px 5px 40px 4px rgba(0, 0, 0, 0.3);
     }
 
     .background-image {
@@ -850,13 +870,9 @@ input:checked + .slider:before {
         }
 
         .button-group {
-            margin-top: 5px;
-            float: right;
-            display: flex;
-            margin-right: 10px;
-            .btn.btn-primary {
-                margin-right: 10px;
-            }
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
         }
 
         li {
@@ -875,7 +891,6 @@ input:checked + .slider:before {
             flex-direction: row;
             justify-content: center;
             padding: 0;
-            margin: 0;
 
             li:not(:first-child) {
                 margin-left: 20px;

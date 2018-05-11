@@ -119,8 +119,8 @@
       methods: {
           searchMovie: debounce(function () {
               const name = this.movieName;
-
-              if (this.movieName.length >= 3) {
+              console.log(this.search_type)
+              if (this.movieName.length >= 3 && this.search_type === true) {
                   this.loader = true
                   this.infoError = false
                   this.$http.post('http://api.baptiste-bisson.com/movie/search', {
