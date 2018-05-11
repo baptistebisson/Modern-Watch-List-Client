@@ -1,7 +1,7 @@
 <template keep-alive>
     <div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6 col-lg-4 col-sm-12 mb-4">
                 <div class="card">
                     <div class="user_picture">
                         <img src="static/img/user.svg" alt="User picture">
@@ -39,9 +39,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6 col-lg-8 col-sm-12">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6 col-sm-6 mb-4">
                         <div class="card card-m">
                             <h2>Top genres</h2>
                             <div class="content">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6 col-sm-6 mb-4">
                         <div class="card card-m">
                             <h2>Biggest gross</h2>
                             <div class="content big-number">
@@ -58,7 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6 col-sm-6 mb-4">
                         <div class="card card-m">
                             <h2>Biggest budget</h2>
                             <div class="content big-number">
@@ -66,6 +66,16 @@
                                 <span class="title">{{ budget_title }}</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-m">
+                    <h2>Watch list usage</h2>
+                    <div class="content">
+                        <canvas id="days-chart" height="70"></canvas>
                     </div>
                 </div>
             </div>
@@ -86,8 +96,14 @@ export default {
             user: JSON.parse(localStorage.getItem('user')),
             ajax: [],
             config: [],
-            labels: [],
-            values: [],
+            genres: {
+                labels: [],
+                values: [],
+            },
+            days: {
+                labels: [],
+                values: [],
+            },
             gross: 0,
             budget: 0,
             gross_title: "",
@@ -107,10 +123,13 @@ export default {
             this.gross_title = this.ajax.gross.title;
             this.budget_title = this.ajax.budget.title;
 
-            this.labels = response.body.genres.labels;
-            this.values = response.body.genres.data;
-            this.createChart(response.body.genres);
+            this.genres.labels = response.body.genres.labels;
+            this.genres.values = response.body.genres.data;
+            this.days.labels = response.body.days.labels;
+            this.days.values = response.body.days.data;
 
+            this.createChart("genres");
+            this.createChart("days");
         }, () => {
 
         })
@@ -125,36 +144,65 @@ export default {
             let val = (value/1).toFixed(2).replace('.', ',')
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
         },
-        createChart() {
-            var data = {
-                labels: this.labels,
-                datasets: [
-                    {
-                        data: this.values,
-                        backgroundColor: [
-                            'rgb(255, 99, 132)',
-    						'rgb(255, 159, 64)',
-    						'rgb(255, 205, 86)',
-    						'rgb(75, 192, 192)',
-    						'rgb(54, 162, 235)',
-                            'rgb(153, 102, 255)',
-                            'rgb(201, 203, 207)'
-                        ],
-                        label: 'My dataset'
-                    }]
-            };
+        createChart(type) {
+            if (type === "genres") {
+                var data = {
+                    labels: this.genres.labels,
+                    datasets: [
+                        {
+                            data: this.genres.values,
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)'
+                            ],
+                            label: 'My dataset'
+                        }]
+                };
 
-            var ctx = document.getElementById('genre-chart').getContext('2d');
-            new Chart(ctx, {
-                type: 'pie',
-                data: data,
-                options: {
-                    responsive: true,
-                    legend: {
-                        position: 'right'
+                var ctx = document.getElementById('genre-chart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'right'
+                        }
                     }
-                }
-            });
+                });
+            } else if (type === "days") {
+                var data = {
+                    labels: this.days.labels,
+                    datasets: [
+                        {
+                            data: this.days.values,
+                            backgroundColor: [
+                                'rgba(195, 104, 104, 0.2)',
+                            ],
+                            borderColor: [
+                                '#c36868',
+                            ],
+                            label: 'Movies'
+                        }]
+                };
+
+                var ctx = document.getElementById('days-chart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        legend: {
+                            display: false,
+                        }
+                    }
+                });
+            }
         }
     }
 }

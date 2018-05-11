@@ -45,7 +45,7 @@
                             </li>
                             <li class="categories">
                                 <span v-for="(list, index) in movie.genres">
-                                    <span>{{ list.name }}</span><span v-if="index+1 < movie.genres.length">, </span>
+                                    <span class="badge badge-pill" :class="'badge-'+list.name.toLowerCase()">{{ list.name }}</span>
                                 </span>
                             </li>
                         </ul>

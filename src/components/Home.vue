@@ -34,17 +34,17 @@
             <h2 v-else>{{ filteredMovies.length ? filteredMovies.length : 0 }} movies</h2>
 
             <div v-if="filteredMovies.length > 1" class="filters">
-                <label class="check">Date added
+                <label id="date_added" class="check">Date added
                     <input type="checkbox" v-model="filter.date_added">
-                    <span class="checkmark"></span>
+                    <i class="material-icons">keyboard_arrow_down</i>
                 </label>
-                <label class="check">Rate
+                <label id="rate" class="check">Rate
                     <input type="checkbox" v-model="filter.rate">
-                    <span class="checkmark"></span>
+                    <i class="material-icons">keyboard_arrow_down</i>
                 </label>
                 <label class="check">Movie date
-                    <input type="checkbox" v-model="filter.movie_date">
-                    <span class="checkmark"></span>
+                    <input id="movie_date" type="checkbox" v-model="filter.movie_date">
+                    <i class="material-icons">keyboard_arrow_down</i>
                 </label>
                 <span @click="refresh()" class="refresh"><i class="material-icons">refresh</i></span>
             </div>
@@ -245,15 +245,21 @@
                   }
 
                   if (this.filter.date_added === true) {
+                      $('#date_added i').addClass('rotate');
                       result = result.sort((a,b) => {
-                          return new Date(b.pivot.position) - new Date(a.pivot.position)
+                          return new Date(a.pivot.position) - new Date(b.pivot.position)
                       })
+                  } else {
+                      $('#date_added i').removeClass('rotate');
                   }
 
                   if (this.filter.rate === true) {
+                      $('#rate i').addClass('rotate');
                       result = result.sort((a,b) => {
                           return a.pivot.rating - b.pivot.rating
                       })
+                  } else {
+                      $('#rate i').removeClass('rotate');
                   }
 
                   return result;

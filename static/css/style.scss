@@ -29,6 +29,10 @@ body {
     display: none !important;
 }
 
+.rotate {
+    transform: rotate(180deg);
+}
+
 .full_width {
     width: 100%;
 }
@@ -664,6 +668,10 @@ input:checked + .slider:before {
     .form-group {
         margin-top: 20px;
         text-align: right;
+        margin-right: 10px;
+        button {
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -724,6 +732,11 @@ input:checked + .slider:before {
             min-height: 583px;
         }
     }
+    @media only screen and (min-width: 990px) {
+        .movie_details {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    }
     .movie_details {
         flex-direction: row;
         padding: 0;
@@ -731,6 +744,7 @@ input:checked + .slider:before {
         border: 0;
         border-bottom-right-radius: 0.6rem;
         border-top-right-radius: 0.6rem;
+
 
 
         h1 {
@@ -772,6 +786,7 @@ input:checked + .slider:before {
             &:hover {
                 .rate-group {
                     height: auto;
+                    display: block;
                     i:hover {
                         opacity: 0.3;
                     }
@@ -798,6 +813,7 @@ input:checked + .slider:before {
                 background-color: $main-color;
                 border-radius: 30px;
                 text-align: center;
+                display: none;
 
                 i:first-child {
                     margin-top: 27px;
@@ -1096,7 +1112,7 @@ input:checked + .slider:before {
 .check {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 15px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -1152,6 +1168,12 @@ input:checked + .slider:before {
     opacity: 0.9;
 }
 
+.badge {
+    color: white;
+    margin-right: 3px;
+    background-color: $main-color;
+}
+
 .ribbon-wrapper {
     width: 85px;
     height: 88px;
@@ -1160,6 +1182,7 @@ input:checked + .slider:before {
     top: 0px;
     left: 0px;
     z-index: 1;
+    pointer-events: none;
 
     .ribbon {
         color: #fff;
@@ -1178,11 +1201,12 @@ input:checked + .slider:before {
         line-height: 20px;
         top: 13px;
         width: 126px;
-        
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
         &.new {
             background-color: $main-color;
         }
-        
+
         &.upcoming {
             background-color: #47b0e0;
         }
@@ -1269,19 +1293,6 @@ input:checked + .slider:before {
                 }
             }
         }
-    }
-
-    .user {
-        .form-group {
-            padding: 10px;
-            button.btn.btn-info.btn-sm {
-                margin-top: 10px;
-            }
-        }
-    }
-
-    .col-md-4, .col-md-6 {
-        margin-bottom: 20px;
     }
 }
 
