@@ -8,7 +8,7 @@
                     <span class="name">{{ name }}</span></span>
                 <div class="menu hide">
                     <ul>
-                        <li><a href="/user">Personnal details</a></li>
+                        <li><a href="/user/details">Personnal details</a></li>
                         <li><router-link to="logout">Logout</router-link></li>
                     </ul>
                 </div>

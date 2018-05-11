@@ -4,7 +4,7 @@
             <div class="col-md-6 col-lg-4 col-sm-12 mb-4">
                 <div class="card">
                     <div class="user_picture">
-                        <img src="static/img/user.svg" alt="User picture">
+                        <img src="/static/img/user.svg" alt="User picture">
                     </div>
                     <div class="user_data">
                         <ul>
@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import Chart from 'chart.js'
+import Chart from '../../../node_modules/chart.js/src/chart'
 import numeral from 'numeral'
 
 export default {

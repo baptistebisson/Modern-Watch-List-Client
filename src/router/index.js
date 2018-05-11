@@ -46,10 +46,10 @@ const router = new Router({
             }
         },
         {
-            path: '/user',
-            name: 'user',
+            path: '/user/details',
+            name: 'user/details',
             component: function (resolve) {
-                require(['@/components/User.vue'], resolve)
+                require(['@/components/User/Details.vue'], resolve)
             }
         },
         {
