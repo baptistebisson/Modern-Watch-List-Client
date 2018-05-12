@@ -7465,6 +7465,8 @@ input:checked + .slider:before {
   user-select: none;
   font-size: inherit;
   margin-bottom: 0px; }
+  .check.input-filter {
+    padding-left: 35px; }
   .check:hover input ~ .checkmark {
     background-color: #c36868; }
   .check input:checked ~ .checkmark:after {

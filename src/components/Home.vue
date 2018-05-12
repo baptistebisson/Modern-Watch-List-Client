@@ -42,9 +42,13 @@
                     <input type="checkbox" v-model="filter.rate">
                     <i class="material-icons">keyboard_arrow_down</i>
                 </label>
-                <label id="release_date" class="check">Movie date
+                <label id="release_date" class="check">Release date
                     <input type="checkbox" v-model="filter.release_date">
                     <i class="material-icons">keyboard_arrow_down</i>
+                </label>
+                <label class="check input-filter">Upcoming
+                    <input type="checkbox" v-model="filter.upcoming_movie">
+                    <span class="checkmark"></span>
                 </label>
                 <span @click="refresh()" class="refresh"><i class="material-icons">refresh</i></span>
             </div>
@@ -106,6 +110,7 @@
                   date_added: false,
                   rate: false,
                   release_date: false,
+                  upcoming_movie: false,
               },
           }
       },
@@ -275,6 +280,13 @@
                       })
                   } else {
                       $('#release_date i').removeClass('rotate');
+                  }
+
+                  // Order by upcoming
+                  if (this.filter.upcoming_movie === true) {
+                      result = result.filter((movie) => {
+                          return this.upcoming(movie.release_date)
+                      })
                   }
 
                   return result;

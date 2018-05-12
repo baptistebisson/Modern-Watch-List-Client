@@ -1136,6 +1136,10 @@ input:checked + .slider:before {
     font-size: inherit;
     margin-bottom: 0px;
 
+    &.input-filter {
+        padding-left: 35px;
+    }
+
     &:hover input ~ .checkmark {
         background-color: $main-color;
     }
