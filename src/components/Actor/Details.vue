@@ -4,8 +4,7 @@
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">
                     <div class="movie_image">
-                        <v-lazy-image v-bind:src="'http://api.baptiste-bisson.com/img/a/'+actor.details.image_original"
-                        v-bind:src-placeholder="'http://api.baptiste-bisson.com/img/a/'+actor.details.image_small"/>
+                        <img v-bind:src="'http://api.baptiste-bisson.com/img/a/'+actor.details.image_original" v-bind:alt="actor.details.name">
                     </div>
                 </div>
                 <div class="col-lg-8 droite">
@@ -14,6 +13,9 @@
                         <ul class="liste">
                             <li>
                                 <span>{{ actor.details.birth_date }}</span>
+                            </li>
+                            <li>
+                                <span>{{ age }}</span>
                             </li>
                             <li>
                                 <span>{{ actor.details.place_of_birth }}</span>
@@ -35,9 +37,6 @@
                                     <span class="data">"{{ actor.biggest_budget.title }}" with <b>{{ budget }}</b></span>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="button-group">
-                            <button @click="deleteActor" type="button" class="btn btn-warning btn-sm"><i class="material-icons">delete</i> Delete</button>
                         </div>
                     </div>
                 </div>
@@ -120,6 +119,7 @@ export default {
             movies: [],
             not_released: [],
             famous_movies: [],
+            age: '',
         }
     },
     created: function() {
@@ -130,14 +130,13 @@ export default {
             this.gross = numeral(response.body.biggest_gross.gross).format('$0.00a');
             this.budget = numeral(response.body.biggest_budget.budget).format('$0.00a');
             this.getDetails(response.body.details.api_id);
+
+            this.age = this.calculateAge(this.actor.details.birth_date);
         }, (error) => {
             router.push('/home')
         })
     },
     methods: {
-        deleteActor() {
-
-        },
         getDetails(api_id) {
             this.$http.get('http://api.baptiste-bisson.com/actor/credits', {
                 params: {
@@ -150,8 +149,15 @@ export default {
                 this.famous_movies = cast.slice(0, 10);
 
                 for (var i = 0; i < Object.keys(cast).length; i++) {
-                    if (cast[i].release_date === "") {
-                        this.not_released.push(cast[i]);
+                    // We don't want movie without release date
+                    if (!cast[i].hasOwnProperty('release_date')) {
+                        cast.splice(i, 1);
+                    } else {
+                        if (cast[i].release_date === "") {
+                            this.not_released.push(cast[i]);
+                            // Remove this movie from array
+                            cast.splice(i, 1);
+                        }
                     }
                 }
 
@@ -159,12 +165,17 @@ export default {
 
                 // Sort array
                 this.movies = Object.assign(movies, this.not_released);
-
-                console.log(this.not_released);
             }, () => {
 
             })
         },
+        calculateAge(birthday) {
+            var birthdate = new Date(birthday);
+            var cur = new Date();
+            var diff = cur-birthdate; // This is the difference in milliseconds
+            var age = Math.floor(diff/31557600000);
+            return age + ' years old';
+        }
     }
 }
 </script>

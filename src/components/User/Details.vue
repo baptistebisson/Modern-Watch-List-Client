@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col-md-6 col-lg-4 col-sm-12 mb-4">
-                <div class="card">
+                <div class="card" style="min-height: 748px;">
                     <div class="user_picture">
                         <img src="/static/img/user.svg" alt="User picture">
                     </div>
@@ -44,7 +44,7 @@
                     <div class="col-md-12 col-lg-6 col-sm-6 mb-4">
                         <div class="card card-m">
                             <h2>Top genres</h2>
-                            <div class="content">
+                            <div class="content" style="min-height: 228px">
                                 <canvas id="genre-chart"></canvas>
                             </div>
                         </div>
@@ -52,18 +52,22 @@
                     <div class="col-md-12 col-lg-6 col-sm-6 mb-4">
                         <div class="card card-m">
                             <h2>Biggest gross</h2>
-                            <div class="content big-number">
-                                <span class="number">{{ gross }}</span>
-                                <span class="title">{{ gross_title }}</span>
+                            <div class="content big-number" style="min-height: 116px;">
+                                <span class="number">{{ gross.total }}</span>
+                                <router-link :to="{ name: 'movie/details', params: { id: gross.id }}">
+                                    <span class="title">{{ gross.title }}</span>
+                                </router-link>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 col-sm-6 mb-4">
                         <div class="card card-m">
                             <h2>Biggest budget</h2>
-                            <div class="content big-number">
-                                <span class="number">{{ budget }}</span>
-                                <span class="title">{{ budget_title }}</span>
+                            <div class="content big-number" style="min-height: 116px;">
+                                <span class="number">{{ budget.total }}</span>
+                                <router-link :to="{ name: 'movie/details', params: { id: budget.id }}">
+                                    <span class="title">{{ budget.title }}</span>
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -104,10 +108,16 @@ export default {
                 labels: [],
                 values: [],
             },
-            gross: 0,
-            budget: 0,
-            gross_title: "",
-            budget_title: "",
+            gross: {
+                'total': 0,
+                'title': '',
+                'id': 0,
+            },
+            budget: {
+                'total': 0,
+                'title': '',
+                'id': 0,
+            },
         }
     },
     mounted() {
@@ -118,10 +128,13 @@ export default {
             id: 1,
         }).then((response) => {
             this.ajax = response.body;
-            this.gross = numeral(this.ajax.gross.gross).format('$0.00a');
-            this.budget = numeral(this.ajax.budget.budget).format('$0.00a');
-            this.gross_title = this.ajax.gross.title;
-            this.budget_title = this.ajax.budget.title;
+            this.gross.total = numeral(this.ajax.gross.gross).format('$0.00a');
+            this.gross.title = this.ajax.gross.title;
+            this.gross.id = this.ajax.gross.id;
+
+            this.budget.total = numeral(this.ajax.budget.budget).format('$0.00a');
+            this.budget.title = this.ajax.budget.title;
+            this.budget.id = this.ajax.budget.id;
 
             this.genres.labels = response.body.genres.labels;
             this.genres.values = response.body.genres.data;

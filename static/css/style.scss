@@ -994,8 +994,6 @@ input:checked + .slider:before {
 }
 
 .sort_movies {
-    max-height: 500px;
-    overflow: auto;
     img {
         width: 40px;
         border-radius: 8px;
@@ -1247,6 +1245,9 @@ input:checked + .slider:before {
                 vertical-align: top;
                 width: 30px;
             }
+            &.role {
+                width: 100%;
+            }
         }
     }
 }
@@ -1335,6 +1336,9 @@ input:checked + .slider:before {
 }
 
 @media only screen and (max-width: 500px) {
+    .notyf {
+        width: 249px !important;
+    }
     .cards_list {
         .movie_card {
             flex-direction: row;

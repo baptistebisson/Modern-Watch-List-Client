@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '../store'
-import vbclass from 'vue-body-class'
-
 Vue.use(Router)
 
 const router = new Router({
@@ -56,7 +54,7 @@ const router = new Router({
             path: '/movie/reorder',
             name: 'movie/reorder',
             component: function (resolve) {
-                require(['@/components/Presentation.vue'], resolve)
+                require(['@/components/Movie/Reorder.vue'], resolve)
             }
         },
         {

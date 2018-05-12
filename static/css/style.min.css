@@ -7356,18 +7356,15 @@ input:checked + .slider:before {
     top: 5px;
     cursor: pointer; }
 
-.sort_movies {
-  max-height: 500px;
-  overflow: auto; }
-  .sort_movies img {
-    width: 40px;
-    border-radius: 8px; }
-  .sort_movies .movie_item {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    cursor: move;
-    cursor: -webkit-grabbing; }
+.sort_movies img {
+  width: 40px;
+  border-radius: 8px; }
+.sort_movies .movie_item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: move;
+  cursor: -webkit-grabbing; }
 
 .sort {
   padding: 10px;
@@ -7553,6 +7550,8 @@ input:checked + .slider:before {
       color: #ccc;
       vertical-align: top;
       width: 30px; }
+    #actor_credits tr td.role {
+      width: 100%; }
 
 @media only screen and (max-width: 990px) {
   .body-details .movie_details {
@@ -7609,6 +7608,9 @@ input:checked + .slider:before {
       left: -113px;
       top: 37px; } }
 @media only screen and (max-width: 500px) {
+  .notyf {
+    width: 249px !important; }
+
   .cards_list .movie_card {
     flex-direction: row;
     width: 100%;
