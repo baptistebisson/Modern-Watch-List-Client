@@ -42,8 +42,8 @@
                     <input type="checkbox" v-model="filter.rate">
                     <i class="material-icons">keyboard_arrow_down</i>
                 </label>
-                <label class="check">Movie date
-                    <input id="movie_date" type="checkbox" v-model="filter.movie_date">
+                <label id="release_date" class="check">Movie date
+                    <input type="checkbox" v-model="filter.release_date">
                     <i class="material-icons">keyboard_arrow_down</i>
                 </label>
                 <span @click="refresh()" class="refresh"><i class="material-icons">refresh</i></span>
@@ -105,7 +105,7 @@
               filter: {
                   date_added: false,
                   rate: false,
-                  movie_date: false,
+                  release_date: false,
               },
           }
       },
@@ -224,6 +224,8 @@
               notyf.confirm('Refreshing list')
           },
           upcoming (date) {
+              // Check if movie is released or not based on release date and today
+              // date
               return new Date(date) > new Date();
           }
 
@@ -232,6 +234,8 @@
           filteredMovies: function () {
               if (store.state.savedData !== null) {
                   let result;
+
+                  // Order by input text
                   if (this.search_type === false) {
                       const name = this.movieName;
                       const regex = new RegExp(name, 'i');
@@ -243,6 +247,7 @@
                       result = store.state.savedData;
                   }
 
+                  // Order by date added/position
                   if (this.filter.date_added === true) {
                       $('#date_added i').addClass('rotate');
                       result = result.sort((a,b) => {
@@ -252,6 +257,7 @@
                       $('#date_added i').removeClass('rotate');
                   }
 
+                  // Order by rate
                   if (this.filter.rate === true) {
                       $('#rate i').addClass('rotate');
                       result = result.sort((a,b) => {
@@ -259,6 +265,16 @@
                       })
                   } else {
                       $('#rate i').removeClass('rotate');
+                  }
+
+                  // Order by release date
+                  if (this.filter.release_date === true) {
+                      $('#release_date i').addClass('rotate');
+                      result = result.sort((a,b) => {
+                          return new Date(a.release_date) - new Date(b.release_date)
+                      })
+                  } else {
+                      $('#release_date i').removeClass('rotate');
                   }
 
                   return result;
