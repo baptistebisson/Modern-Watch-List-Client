@@ -14,13 +14,23 @@
                 </div>
                 <div class="col-lg-8 droite">
                     <div class="details">
-                        <div class="rating">
+                        <div v-if="movie.user_rate !== 404" class="rating">
                             <span class="rate">
-                                <i title="Not seen" v-if="movie.user_rate == 0" class="material-icons">visibility_off</i>
-                                <i title="Bad" v-else-if="movie.user_rate == 1" class="material-icons">thumb_down</i>
-                                <i title="Okay" v-else-if="movie.user_rate == 2" class="material-icons">thumbs_up_down</i>
-                                <i title="Good" v-else-if="movie.user_rate == 3" class="material-icons">thumb_up</i>
-                                <i title="Great !" v-else-if="movie.user_rate == 4" class="material-icons">favorite</i>
+                                <i title="Not seen" v-if="movie.user_rate === 0" class="material-icons">
+                                    visibility_off
+                                </i>
+                                <i title="Bad" v-else-if="movie.user_rate === 1" class="material-icons">
+                                    thumb_down
+                                </i>
+                                <i title="Okay" v-else-if="movie.user_rate === 2" class="material-icons">
+                                    thumbs_up_down
+                                </i>
+                                <i title="Good" v-else-if="movie.user_rate === 3" class="material-icons">
+                                    thumb_up
+                                </i>
+                                <i title="Great !" v-else-if="movie.user_rate === 4" class="material-icons">
+                                    favorite
+                                </i>
                             </span>
                             <div class="rate-group">
                                 <i title="Bad" @click="addMark(1)" class="material-icons">thumb_down</i>
@@ -28,6 +38,11 @@
                                 <i title="Good" @click="addMark(3)" class="material-icons">thumb_up</i>
                                 <i title="Great !" @click="addMark(4)" class="material-icons">favorite</i>
                             </div>
+                        </div>
+                        <div v-else class="rating">
+                            <span class="rate">
+                                <i title="Add to list" @click="addToList()" class="material-icons">add</i>
+                            </span>
                         </div>
                         <h1 v-if="language == 'en'" v-on:click="showFrench">{{ movie.title }}
                             <small v-if="movie.french_title"><button type="button" name="button">{{ language }}</button></small>
@@ -69,7 +84,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="button-group">
+                        <div v-if="movie.user_rate !== 404" class="button-group">
                             <button @click="deleteMovie" type="button" class="btn btn-warning btn-sm"><i class="material-icons">delete</i> Delete</button>
                         </div>
                     </div>
@@ -156,10 +171,6 @@ export default {
                     id: this.movie.id,
                     type: "movie",
                     mark: mark
-                }, {
-                    headers: {
-                        Authorization: 'Bearer ' + localStorage.getItem('token')
-                    },
                 }).then((response) => {
                     if (response.body.error === false) {
                         this.movie.user_rate = mark;
@@ -171,6 +182,21 @@ export default {
 
                 })
             }
+        },
+        addToList() {
+            var notyf = new Notyf();
+            this.$http.post('http://api.baptiste-bisson.com/user/add', {
+                id: this.movie.id,
+                type: "movie",
+            }).then((response) => {
+                if (response.body.error === false) {
+                    notyf.confirm(response.body.message);
+                } else {
+                    notyf.alert(response.body.message);
+                }
+            }, () => {
+
+            })
         },
         deleteMovie() {
             swal({
