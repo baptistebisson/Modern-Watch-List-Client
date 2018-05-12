@@ -71,11 +71,7 @@ export default new Vuex.Store({
 
                 })
             } else {
-                Vue.http.get('http://api.baptiste-bisson.com/movie/get', {
-                    headers: {
-                        Authorization: 'Bearer ' + localStorage.getItem('token')
-                    },
-                }).then((response) => {
+                Vue.http.get('http://api.baptiste-bisson.com/movie/get').then((response) => {
                     commit('updateSavedData', response.body);
                     localStorage.setItem('movies', JSON.stringify(response.body));
                 }, () => {
@@ -113,11 +109,7 @@ export default new Vuex.Store({
         validToken({
             commit
         }) {
-            Vue.http.get('http://api.baptiste-bisson.com/auth/valid', {
-                headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token')
-                },
-            }).then((response) => {
+            Vue.http.get('http://api.baptiste-bisson.com/auth/valid').then((response) => {
                 commit('updateValidToken', true)
             }, () => {
 
