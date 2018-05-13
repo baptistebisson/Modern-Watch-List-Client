@@ -4,7 +4,7 @@
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">
                     <div class="movie_image">
-                        <img v-bind:src="'http://api.baptiste-bisson.com/img/a/'+actor.details.image_original" v-bind:alt="actor.details.name">
+                        <img v-bind:src="'https://api.baptiste-bisson.com/img/a/'+actor.details.image_original" v-bind:alt="actor.details.name">
                     </div>
                 </div>
                 <div class="col-lg-8 droite">
@@ -123,7 +123,7 @@ export default {
         }
     },
     created: function() {
-        this.$http.post('http://api.baptiste-bisson.com/actor/details', {
+        this.$http.post('https://api.baptiste-bisson.com/actor/details', {
             id: this.$route.params.id,
         }).then((response) => {
             this.actor = response.body;
@@ -138,7 +138,7 @@ export default {
     },
     methods: {
         getDetails(api_id) {
-            this.$http.get('http://api.baptiste-bisson.com/actor/credits', {
+            this.$http.get('https://api.baptiste-bisson.com/actor/credits', {
                 params: {
                     id: api_id
                 }

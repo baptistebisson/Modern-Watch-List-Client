@@ -5,7 +5,7 @@
             <div class="card sort full_width">
                 <draggable :list="list" class="sort_movies">
                     <div v-for="item in list" class="movie_item">
-                        <img :src="'http://api.baptiste-bisson.com/img/'+item.image_small" alt="">
+                        <img :src="'https://api.baptiste-bisson.com/img/'+item.image_small" alt="">
                         {{item.title}}
                     </div>
                 </draggable>
@@ -51,7 +51,7 @@
                 }
 
                 const notyf = new Notyf();
-                this.$http.post('http://api.baptiste-bisson.com/movie/move', {
+                this.$http.post('https://api.baptiste-bisson.com/movie/move', {
                     movies: newList,
                 }).then((response) => {
                     if (response.body.error === false) {

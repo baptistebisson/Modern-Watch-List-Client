@@ -56,11 +56,11 @@ export default new Vuex.Store({
                         'position': e['pivot']['position']
                     });
                 });
-                Vue.http.post('http://api.baptiste-bisson.com/movie/refresh', {
+                Vue.http.post('https://api.baptiste-bisson.com/movie/refresh', {
                     movies: list,
                 }).then((response) => {
                     if (response.body === 'true') {
-                        Vue.http.get('http://api.baptiste-bisson.com/movie/get').then((response) => {
+                        Vue.http.get('https://api.baptiste-bisson.com/movie/get').then((response) => {
                             commit('updateSavedData', response.body)
                             localStorage.setItem('movies', JSON.stringify(response.body));
                         }, () => {
@@ -71,7 +71,7 @@ export default new Vuex.Store({
 
                 })
             } else {
-                Vue.http.get('http://api.baptiste-bisson.com/movie/get').then((response) => {
+                Vue.http.get('https://api.baptiste-bisson.com/movie/get').then((response) => {
                     commit('updateSavedData', response.body);
                     localStorage.setItem('movies', JSON.stringify(response.body));
                 }, () => {
@@ -81,7 +81,7 @@ export default new Vuex.Store({
             
             // Popular movies
             if (!localStorage.getItem("popular_movies")) {
-                Vue.http.get('http://api.baptiste-bisson.com/movie/popular').then((response) => {
+                Vue.http.get('https://api.baptiste-bisson.com/movie/popular').then((response) => {
                     commit('updatePopularMovie', response.body);
                     localStorage.setItem('popular_movies', JSON.stringify(response.body));
                 }, () => {
@@ -95,7 +95,7 @@ export default new Vuex.Store({
         getPopularMovies({commit}, params) {
             // Popular movies
             if (!localStorage.getItem("popular_movies")) {
-                Vue.http.get('http://api.baptiste-bisson.com/movie/popular').then((response) => {
+                Vue.http.get('https://api.baptiste-bisson.com/movie/popular').then((response) => {
                     commit('updatePopularMovie', response.body);
                     localStorage.setItem('popular_movies', JSON.stringify(response.body));
                 }, () => {
@@ -109,7 +109,7 @@ export default new Vuex.Store({
         validToken({
             commit
         }) {
-            Vue.http.get('http://api.baptiste-bisson.com/auth/valid').then((response) => {
+            Vue.http.get('https://api.baptiste-bisson.com/auth/valid').then((response) => {
                 commit('updateValidToken', true)
             }, () => {
 

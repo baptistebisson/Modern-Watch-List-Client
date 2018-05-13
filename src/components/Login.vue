@@ -42,7 +42,7 @@
             login () {
                 this.loader = true
                 this.infoError = false
-                this.$http.post('http://api.baptiste-bisson.com/auth/login', {
+                this.$http.post('https://api.baptiste-bisson.com/auth/login', {
                     email: this.email,
                     password: this.password
                 }).then((response) => {

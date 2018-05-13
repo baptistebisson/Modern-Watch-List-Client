@@ -65,7 +65,7 @@
                             </span>
                             <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
                             <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
-                                <img v-bind:src="'http://api.baptiste-bisson.com/img/'+value.image_small" v-bind:alt="value.title">
+                                <img v-bind:src="'https://api.baptiste-bisson.com/img/'+value.image_small" v-bind:alt="value.title">
                             </router-link>
                         </div>
                         <article>
@@ -128,7 +128,7 @@
               if (this.movieName.length >= 3 && this.search_type === true) {
                   this.loader = true
                   this.infoError = false
-                  this.$http.post('http://api.baptiste-bisson.com/movie/search', {
+                  this.$http.post('https://api.baptiste-bisson.com/movie/search', {
                       title: name,
                   }).then((response) => {
                       this.moviesFound = response.body.results;
@@ -147,7 +147,7 @@
               })
                   .then((willAdd) => {
                       if (willAdd) {
-                          this.$http.post('http://api.baptiste-bisson.com/movie/create', {
+                          this.$http.post('https://api.baptiste-bisson.com/movie/create', {
                               id: e.id,
                               user_id: JSON.parse(localStorage.getItem('user')).id
                           }).then((response) => {
@@ -173,7 +173,7 @@
               $('#search-movie').val('');
           },
           getMovies () {
-              this.$http.get('http://api.baptiste-bisson.com/movie/get').then((response) => {
+              this.$http.get('https://api.baptiste-bisson.com/movie/get').then((response) => {
                   this.moviesUser = response.body
                   // localStorage.setItem('movies', JSON.stringify(response.body))
               }, () => {
@@ -197,7 +197,7 @@
               })
                   .then((willDelete) => {
                       if (willDelete) {
-                          this.$http.post('http://api.baptiste-bisson.com/user/delete', {
+                          this.$http.post('https://api.baptiste-bisson.com/user/delete', {
                               id: movie.id,
                               type: 'movie'
                           }).then((response) => {

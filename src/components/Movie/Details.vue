@@ -1,7 +1,7 @@
 <template>
     <div v-if="movie.backdrop_path">
         <div class="background-section">
-            <div class="background-image" v-bind:style="{ backgroundImage: 'url(http://api.baptiste-bisson.com/img/b/' + movie.backdrop_path + ')' }">
+            <div class="background-image" v-bind:style="{ backgroundImage: 'url(https://api.baptiste-bisson.com/img/b/' + movie.backdrop_path + ')' }">
 
             </div>
         </div>
@@ -9,7 +9,7 @@
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">
                     <div class="movie_image">
-                        <img v-bind:src="'http://api.baptiste-bisson.com/img/'+movie.image_original" v-bind:alt="movie.title">
+                        <img v-bind:src="'https://api.baptiste-bisson.com/img/'+movie.image_original" v-bind:alt="movie.title">
                     </div>
                 </div>
                 <div class="col-lg-8 droite">
@@ -97,7 +97,7 @@
                 <div class="people_card" v-for="(value, key, index) in movie.actors">
                     <router-link :to="{ name: 'actor/details', params: { id: value.id }}">
                         <div class="content">
-                            <img v-bind:src="'http://api.baptiste-bisson.com/img/a/'+value.image_small" alt="">
+                            <img v-bind:src="'https://api.baptiste-bisson.com/img/a/'+value.image_small" alt="">
                             <article>
                                 <h1>{{ value.name }}</h1>
                                 <span>#{{ value.pivot.name }}</span>
@@ -113,7 +113,7 @@
                 <div class="people_card" v-for="(value, key, index) in movie.directors">
                     <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
                         <div class="content">
-                            <img v-bind:src="'http://api.baptiste-bisson.com/img/d/'+value.image_small" alt="">
+                            <img v-bind:src="'https://api.baptiste-bisson.com/img/d/'+value.image_small" alt="">
                             <article>
                                 <h1>{{ value.name }}</h1>
                             </article>
@@ -139,7 +139,7 @@ export default {
         }
     },
     created: function() {
-        this.$http.post('http://api.baptiste-bisson.com/movie/details', {
+        this.$http.post('https://api.baptiste-bisson.com/movie/details', {
             id: this.$route.params.id,
         }).then((response) => {
             this.movie = response.body;
@@ -167,7 +167,7 @@ export default {
         addMark(mark) {
             var notyf = new Notyf();
             if (mark !== this.movie.user_rate) {
-                this.$http.post('http://api.baptiste-bisson.com/user/mark', {
+                this.$http.post('https://api.baptiste-bisson.com/user/mark', {
                     id: this.movie.id,
                     type: "movie",
                     mark: mark
@@ -185,7 +185,7 @@ export default {
         },
         addToList() {
             var notyf = new Notyf();
-            this.$http.post('http://api.baptiste-bisson.com/user/add', {
+            this.$http.post('https://api.baptiste-bisson.com/user/add', {
                 id: this.movie.id,
                 type: "movie",
             }).then((response) => {
@@ -208,7 +208,7 @@ export default {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    this.$http.post('http://api.baptiste-bisson.com/user/delete', {
+                    this.$http.post('https://api.baptiste-bisson.com/user/delete', {
                         id: this.movie.id,
                         type: "movie",
                     }, {

@@ -13,7 +13,7 @@
                         </div>
                         <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
                         <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
-                            <img v-bind:src="'http://api.baptiste-bisson.com/img/'+value.image_small">
+                            <img v-bind:src="'https://api.baptiste-bisson.com/img/'+value.image_small">
                         </router-link>
                     </div>
                     <article>
