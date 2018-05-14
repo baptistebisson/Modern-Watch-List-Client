@@ -65,7 +65,7 @@
                             </span>
                             <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
                             <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
-                                <img v-bind:src="'https://api.baptiste-bisson.com/img/'+value.image_small" v-bind:alt="value.title">
+                                <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
                             </router-link>
                         </div>
                         <article>

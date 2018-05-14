@@ -9,7 +9,7 @@
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">
                     <div class="movie_image">
-                        <img v-bind:src="'https://api.baptiste-bisson.com/img/'+movie.image_original" v-bind:alt="movie.title">
+                        <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_583,w_389/v1526292604/movie/p/'+movie.image_api" v-bind:alt="movie.title">
                     </div>
                 </div>
                 <div class="col-lg-8 droite">
