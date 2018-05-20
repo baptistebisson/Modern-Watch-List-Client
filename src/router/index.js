@@ -86,7 +86,7 @@ router.beforeEach((to, from, next) => {
         } else {
             next('login');
         }
-        Vue.http.get('http://api.baptiste-bisson.com/auth/valid').then((response) => {
+        Vue.http.get('https://api.baptiste-bisson.com/auth/valid').then((response) => {
         
         }, () => {
         

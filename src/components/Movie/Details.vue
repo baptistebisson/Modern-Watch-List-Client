@@ -220,7 +220,7 @@ export default {
                             swal("Movie deleted", {
                                 icon: "success",
                             });
-                            router.push('/home')
+                            router.push('/')
                         } else {
                             swal("An error has occured", {
                                 icon: "error",
