@@ -4,7 +4,7 @@
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">
                     <div class="movie_image">
-                        <img v-bind:src="'https://api.baptiste-bisson.com/img/a/'+actor.details.image_original" v-bind:alt="actor.details.name">
+                        <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_583,w_389/v1526292604/movie/a/'+actor.details.image_original" v-bind:alt="actor.details.name">
                     </div>
                 </div>
                 <div class="col-lg-8 droite">

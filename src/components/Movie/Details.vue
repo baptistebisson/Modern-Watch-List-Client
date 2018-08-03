@@ -1,7 +1,7 @@
 <template>
     <div v-if="movie.backdrop_path">
         <div class="background-section">
-            <div class="background-image" v-bind:style="{ backgroundImage: 'url(https://api.baptiste-bisson.com/img/b/' + movie.backdrop_path + ')' }">
+            <div class="background-image" v-bind:style="{ backgroundImage: 'url(http://res.cloudinary.com/dsxar8lse/image/upload/v1527690379/movie/c/' + movie.imdb_id + '.jpg)' }">
 
             </div>
         </div>
@@ -97,7 +97,8 @@
                 <div class="people_card" v-for="(value, key, index) in movie.actors">
                     <router-link :to="{ name: 'actor/details', params: { id: value.id }}">
                         <div class="content">
-                            <img v-bind:src="'https://api.baptiste-bisson.com/img/a/'+value.image_small" alt="">
+                            <img v-if="value.image_api === '.jpg'" src="https://res.cloudinary.com/dsxar8lse/image/upload/v1526302908/movie/a/no_picture.jpg" alt="">
+                            <img v-else v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,w_180/v1526292604/movie/a/'+value.image_api" alt="">
                             <article>
                                 <h1>{{ value.name }}</h1>
                                 <span>#{{ value.pivot.name }}</span>
@@ -113,7 +114,8 @@
                 <div class="people_card" v-for="(value, key, index) in movie.directors">
                     <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
                         <div class="content">
-                            <img v-bind:src="'https://api.baptiste-bisson.com/img/d/'+value.image_small" alt="">
+                            <img v-if="value.image_api === 'no_picture.jpg'" src="https://res.cloudinary.com/dsxar8lse/image/upload/v1526302908/movie/a/no_picture.jpg" alt="">
+                            <img v-else v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,w_180/v1526292604/movie/d/'+value.image_api" alt="">
                             <article>
                                 <h1>{{ value.name }}</h1>
                             </article>

@@ -121,7 +121,7 @@ export default {
         }
     },
     mounted() {
-        this.$http.get('http://api.baptiste-bisson.com/user/stats', {
+        this.$http.get('https://api.baptiste-bisson.com/user/stats', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             },
