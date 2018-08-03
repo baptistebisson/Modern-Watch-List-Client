@@ -63,7 +63,6 @@
                             <span v-else-if="upcoming(value.release_date)" class="ribbon-wrapper">
                                 <span class="ribbon upcoming">Upcoming</span>
                             </span>
-                            <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
                             <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
                                 <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
                             </router-link>
@@ -74,18 +73,6 @@
                         </article>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="settings_movie hide">
-            <div class="header">
-                <span class="title">{{ clicked_movie.title }}</span>
-            </div>
-            <div class="content">
-                <ul>
-                    <li @click="deleteMovie(clicked_movie)" ><i class="material-icons">delete</i> Delete</li>
-                    <li @click="moveMovie(clicked_movie)"><i class="material-icons">reorder</i> Move</li>
-                </ul>
-                <span @click="hideSettings()" class="close_settings"><i class="material-icons">close</i></span>
             </div>
         </div>
     </div>
@@ -185,42 +172,6 @@
               const settings = $('.settings_movie');
               if (settings.hasClass('hide')) {
                   settings.removeClass('hide');
-              }
-          },
-          deleteMovie (movie) {
-              swal({
-                  title: 'Are you sure?',
-                  text: 'You will delete ' + movie.title + ' from your list',
-                  icon: 'warning',
-                  buttons: true,
-                  dangerMode: true
-              })
-                  .then((willDelete) => {
-                      if (willDelete) {
-                          this.$http.post('https://api.baptiste-bisson.com/user/delete', {
-                              id: movie.id,
-                              type: 'movie'
-                          }).then((response) => {
-                              if (response.body.error === false) {
-                                  swal('Movie deleted', {
-                                      icon: 'success'
-                                  });
-                                  store.dispatch('fetchData', {refresh: true})
-                              } else {
-                                  swal('An error has occured', {
-                                      icon: 'error'
-                                  })
-                              }
-                          }, () => {
-
-                          })
-                      }
-                  })
-          },
-          hideSettings () {
-              const settings = $('.settings_movie');
-              if (!settings.hasClass('hide')) {
-                  settings.addClass('hide')
               }
           },
           refresh () {
