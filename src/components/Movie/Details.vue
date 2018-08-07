@@ -2,8 +2,10 @@
     <div v-if="movie.backdrop_path" class="container">
         <div class="background-section">
             <div class="background-image" v-bind:style="{ backgroundImage: 'url(http://res.cloudinary.com/dsxar8lse/image/upload/v1527690379/movie/c/' + movie.imdb_id + '.jpg)' }">
-
             </div>
+            <!--<div class="container-button">-->
+                <!--<a href="/" class="get_back"><i class="material-icons">arrow_back</i> Movies</a>-->
+            <!--</div>-->
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md-10 card movie_details row">

@@ -7310,7 +7310,8 @@ input:checked + .slider:before {
   height: 450px;
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 0;
+  margin-top: 70px; }
   .background-section:before {
     content: '';
     position: absolute;
@@ -7328,6 +7329,10 @@ input:checked + .slider:before {
     background-size: cover;
     background-position: center; }
 
+.body-details .container-button {
+  position: absolute;
+  left: 20px;
+  bottom: -40px; }
 @media only screen and (max-width: 990px) {
   .body-details .movie_details {
     min-height: 583px; } }

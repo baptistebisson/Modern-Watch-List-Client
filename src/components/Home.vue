@@ -22,6 +22,7 @@
                         </ul>
                     </div>
                     <div class="search_result">
+                        <div class="loading_content"><img src="/static/img/spinner-circle.svg"></div>
                         <div class="movie_item" v-for="(value, key, index) in moviesFound.slice(0,4)" :data-key="'movie_'+key" v-on:click="addMovie(value)">
                             <div class="movie_card">
                                 <img v-if="value.poster_path !== null" :src="'https://image.tmdb.org/t/p/w185'+ value.poster_path" alt="">
@@ -109,6 +110,7 @@
       mounted () {
           store.dispatch('fetchData', {refresh: false});
           store.dispatch('getPopularMovies', {refresh: false});
+          $('.search_result').hide();
       },
       beforeCreate () {
           document.body.className = 'home'
@@ -118,23 +120,29 @@
               const name = this.movieName;
 
               if (this.movieName.length >= 3 && this.search_type === true) {
+                  // Hide button list
                   $('.settings_search').hide();
-
-                  $('.search_result').html('<div class="loading_content"><img src="/static/img/spinner-circle.svg"></div>')
+                  // Show loader
+                  $('.loading_content').show();
 
                   this.loader = true;
                   this.infoError = false;
                   this.$http.post('https://api.baptiste-bisson.com/movie/search', {
                       title: name,
                   }).then((response) => {
-                      $('.loading_content').html('');
+                      // Content is loaded
+                      // Hide loader
+                      $('.loading_content').hide();
+                      // Show movies
                       $('.search_result').show();
+                      // Add response data to local variable
                       this.moviesFound = response.body.results;
-                      $('.section_result').addClass('show')
                   }, () => {
 
                   });
               } else {
+                  // Input too short
+                  // Hide buttons
                   $('.settings_search').show();
                   $('.search_result').hide();
               }
@@ -170,7 +178,6 @@
                   })
           },
           hideSearch () {
-              $('.section_result').removeClass('show');
               $('#search-movie').val('');
           },
           getMovies () {

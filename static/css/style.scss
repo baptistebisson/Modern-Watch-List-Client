@@ -14,6 +14,7 @@ $container-max-widths: (
   lg: 960px,
   xl: 1400px
 );
+$navbar-height: 70px;
 
 // Bootstrap
 @import 'bootstrap/bootstrap';
@@ -192,7 +193,7 @@ i.material-icons {
     background: -webkit-linear-gradient(to right, #E29587, #D66D75);
     background: linear-gradient(to right, #E29587, #D66D75);
     color: white;
-    height: 70px;
+    height: $navbar-height;
     box-shadow: 0 1px 15px 0 rgba(192,72,25,0.32);
     z-index: 3;
     position: fixed;
@@ -206,7 +207,7 @@ i.material-icons {
 
         .logo {
             width: 120px;
-            height: 70px;
+            height: $navbar-height;
             position: absolute;
             left: 0;
             right: 0;
@@ -310,7 +311,7 @@ i.material-icons {
         align-items: center;
         height: 500px;
         width: 100%;
-        margin-top: 70px;
+        margin-top: $navbar-height;
     }
 }
 
@@ -945,6 +946,7 @@ input:checked + .slider:before {
     position: absolute;
     left: 0;
     top: 0;
+    margin-top: $navbar-height;
 
     &:before {
         content: '';
@@ -968,7 +970,11 @@ input:checked + .slider:before {
 }
 
 .body-details {
-
+    .container-button {
+        position: absolute;
+        left: 20px;
+        bottom: -40px;
+    }
     @media only screen and (max-width: 990px) {
         .movie_details {
             min-height: 583px;
