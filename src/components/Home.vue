@@ -127,7 +127,7 @@
                   this.$http.post('https://api.baptiste-bisson.com/movie/search', {
                       title: name,
                   }).then((response) => {
-                      $('.search_result').html('');
+                      $('.loading_content').html('');
                       $('.search_result').show();
                       this.moviesFound = response.body.results;
                       $('.section_result').addClass('show')
