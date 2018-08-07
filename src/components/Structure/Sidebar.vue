@@ -12,7 +12,7 @@
             <li><router-link to="/"><i class="material-icons">live_tv</i> Series</router-link></li>
         </ul>
         <footer>
-            <span>Created with <i class="material-icons">favorite</i> by <a href="https://baptiste-bisson.com">Baptiste Bisson</a></span>
+            <span>Created by <a href="https://baptiste-bisson.com">Baptiste Bisson</a></span>
         </footer>
     </div>
 </template>

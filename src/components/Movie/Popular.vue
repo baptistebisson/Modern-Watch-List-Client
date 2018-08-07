@@ -1,6 +1,6 @@
 <template>
-    <div v-if="movies" class="section_movies">
-        <h2 v-if="movies.length == 1">Popular movie: {{ movies.length }}</h2>
+    <div v-if="movies" class="section_movies container">
+        <h2 v-if="movies.length === 1">Popular movie: {{ movies.length }}</h2>
         <h2 v-else>Popular movies: {{ movies.length ? movies.length : 0 }}</h2>
 
         <div class="cards_list">
@@ -11,9 +11,8 @@
                             <input type="checkbox" :id="'checkbox'+value.id" id="checkbox" />
                             <label for="checkbox"></label>
                         </div>
-                        <span v-on:click='showSettings(value)' class="show_settings"><i class="material-icons">settings</i></span>
                         <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
-                            <img v-bind:src="'https://api.baptiste-bisson.com/img/'+value.image_small">
+                            <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
                         </router-link>
                     </div>
                     <article>

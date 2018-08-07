@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-10 card movie_details row">
                 <div class="col-lg-4 no-padding">

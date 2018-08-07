@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="container">
         <h1>Reorder movies</h1>
         <div class="row">
             <div class="card sort full_width">
                 <draggable :list="list" class="sort_movies">
                     <div v-for="item in list" class="movie_item">
-                        <img :src="'https://api.baptiste-bisson.com/img/'+item.image_small" alt="">
+                        <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+item.image_api" v-bind:alt="item.title">
                         {{item.title}}
                     </div>
                 </draggable>

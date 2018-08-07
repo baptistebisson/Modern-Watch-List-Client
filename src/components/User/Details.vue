@@ -1,5 +1,5 @@
 <template keep-alive>
-    <div>
+    <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 col-sm-12 mb-4">
                 <div class="card" style="min-height: 748px;">

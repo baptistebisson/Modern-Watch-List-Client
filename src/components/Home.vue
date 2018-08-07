@@ -1,76 +1,81 @@
 <template>
     <div>
-        <div class="row heading-slider justify-content-center">
-            <div class="form find-movie">
-                <input id="search-movie" type="text" pattern=".{3,}" name="movie" v-on:keyup="searchMovie" v-model="movieName" placeholder="Search a movie ...">
-                <div class="selector">
-                    <span class="text" v-bind:class="{ active: !search_type }">Local</span>
-                    <label class="switch" alt="Find online or local movie">
-                        <input id="search_type" type="checkbox" v-model="search_type">
-                        <span class="slider round"></span>
-                    </label>
-                    <span class="text" v-bind:class="{ active: search_type }">IMDB</span>
+        <div class="heading-slider justify-content-center">
+            <div class="find-movie">
+                <div class="search_section">
+                    <div class="search_btn"><img src="/static/img/search.svg" alt="Add a movie"></div>
+                    <input id="search-movie" @blur="hideDropdown" @focus="showDropdown" type="text" pattern=".{3,}" name="movie" v-on:keyup="searchMovie" v-model="movieName" placeholder="Search a movie ...">
                 </div>
-            </div>
-        </div>
-        <div class="section_result">
-            <div id="close_section_result"><i class="material-icons" @click="hideSearch">close</i></div>
-            <div class="cards_list result_search">
-                <div class="item-1" v-for="(value, key, index) in moviesFound.slice(0,4)" :data-key="'movie_'+key" v-on:click="addMovie(value)">
-                    <div class="movie_card">
-                        <img v-if="value.poster_path !== null" :src="'https://image.tmdb.org/t/p/w185'+ value.poster_path" alt="">
-                        <div v-else class="img_null"></div>
-                        <article>
-                            <h1>{{ value.original_title }}</h1>
-                            <span>{{ value.release_date.slice(0,4) }}</span>
-                        </article>
+                <!--<div class="selector">-->
+                    <!--<span class="text" v-bind:class="{ active: !search_type }">Local</span>-->
+                    <!--<label class="switch" alt="Find online or local movie">-->
+                        <!--<input id="search_type" type="checkbox" v-model="search_type">-->
+                        <!--<span class="slider round"></span>-->
+                    <!--</label>-->
+                    <!--<span class="text" v-bind:class="{ active: search_type }">IMDB</span>-->
+                <!--</div>-->
+                <div class="dropdown_search">
+                    <div class="settings_search">
+                        <ul>
+                            <li v-bind:class="{ active: !search_type }" @click='search_type = !search_type'>Local</li>
+                            <li v-bind:class="{ active: search_type }" @click='search_type = !search_type'>Online</li>
+                        </ul>
+                    </div>
+                    <div class="search_result">
+                        <div class="movie_item" v-for="(value, key, index) in moviesFound.slice(0,4)" :data-key="'movie_'+key" v-on:click="addMovie(value)">
+                            <div class="movie_card">
+                                <img v-if="value.poster_path !== null" :src="'https://image.tmdb.org/t/p/w185'+ value.poster_path" alt="">
+                                <div v-else class="img_null"></div>
+                                <article>
+                                    <h1>{{ value.original_title }}</h1>
+                                    <span>{{ value.release_date.slice(0,4) }}</span>
+                                </article>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div v-if="filteredMovies" class="section_movies">
+                <h2 v-if="filteredMovies.length === 1">{{ filteredMovies.length }} movie</h2>
+                <h2 v-else>{{ filteredMovies.length ? filteredMovies.length : 0 }} movies</h2>
 
-        <div v-if="filteredMovies" class="section_movies">
-            <h2 v-if="filteredMovies.length == 1">{{ filteredMovies.length }} movie</h2>
-            <h2 v-else>{{ filteredMovies.length ? filteredMovies.length : 0 }} movies</h2>
+                <div v-if="filteredMovies.length > 1" class="filters">
+                    <label id="date_added" class="check">Date added
+                        <input type="checkbox" v-model="filter.date_added">
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </label>
+                    <label id="rate" class="check">Rate
+                        <input type="checkbox" v-model="filter.rate">
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </label>
+                    <label id="release_date" class="check">Release date
+                        <input type="checkbox" v-model="filter.release_date">
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </label>
+                    <label class="check input-filter">Upcoming
+                        <input type="checkbox" v-model="filter.upcoming_movie">
+                        <span class="checkmark"></span>
+                    </label>
+                    <span @click="refresh()" class="refresh"><i class="material-icons">refresh</i></span>
+                </div>
 
-            <div v-if="filteredMovies.length > 1" class="filters">
-                <label id="date_added" class="check">Date added
-                    <input type="checkbox" v-model="filter.date_added">
-                    <i class="material-icons">keyboard_arrow_down</i>
-                </label>
-                <label id="rate" class="check">Rate
-                    <input type="checkbox" v-model="filter.rate">
-                    <i class="material-icons">keyboard_arrow_down</i>
-                </label>
-                <label id="release_date" class="check">Release date
-                    <input type="checkbox" v-model="filter.release_date">
-                    <i class="material-icons">keyboard_arrow_down</i>
-                </label>
-                <label class="check input-filter">Upcoming
-                    <input type="checkbox" v-model="filter.upcoming_movie">
-                    <span class="checkmark"></span>
-                </label>
-                <span @click="refresh()" class="refresh"><i class="material-icons">refresh</i></span>
-            </div>
-
-            <div class="cards_list">
-                <div class="item" v-for="(value, key, index) in filteredMovies">
-                    <div class="movie_card" :data-id="value.id">
-                        <div class="cover">
-                            <span v-if="value.pivot.rating === 0 && !upcoming(value.release_date)" class="ribbon-wrapper">
-                                <span class="ribbon new">New</span>
-                            </span>
-                            <span v-else-if="upcoming(value.release_date)" class="ribbon-wrapper">
-                                <span class="ribbon upcoming">Upcoming</span>
-                            </span>
-                            <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
-                                <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
-                            </router-link>
+                <div class="cards_list">
+                    <div class="item" v-for="(value, key, index) in filteredMovies">
+                        <div class="movie_card" :data-id="value.id">
+                            <div class="cover">
+                                <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
+                                    <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
+                                </router-link>
+                            </div>
+                            <article>
+                                <h1>{{ value.title }}</h1>
+                                <span>{{ value.release_date.slice(0,4) }}</span>
+                                <span v-if="value.pivot.rating === 0 && !upcoming(value.release_date)" class="new-item" title="New movie"></span>
+                                <span v-else-if="upcoming(value.release_date)" class="upcoming-item" title="Upcoming movie"></span>
+                            </article>
                         </div>
-                        <article>
-                            <h1>{{ value.title }}</h1>
-                            <span>{{ value.release_date.slice(0,4) }}</span>
-                        </article>
                     </div>
                 </div>
             </div>
@@ -106,23 +111,32 @@
           store.dispatch('getPopularMovies', {refresh: false});
       },
       beforeCreate () {
-          document.body.className = ''
+          document.body.className = 'home'
       },
       methods: {
           searchMovie: debounce(function () {
               const name = this.movieName;
-              console.log(this.search_type)
+
               if (this.movieName.length >= 3 && this.search_type === true) {
-                  this.loader = true
-                  this.infoError = false
+                  $('.settings_search').hide();
+
+                  $('.search_result').html('<div class="loading_content"><img src="/static/img/spinner-circle.svg"></div>')
+
+                  this.loader = true;
+                  this.infoError = false;
                   this.$http.post('https://api.baptiste-bisson.com/movie/search', {
                       title: name,
                   }).then((response) => {
+                      $('.search_result').html('');
+                      $('.search_result').show();
                       this.moviesFound = response.body.results;
                       $('.section_result').addClass('show')
                   }, () => {
 
-                  })
+                  });
+              } else {
+                  $('.settings_search').show();
+                  $('.search_result').hide();
               }
           }, 400),
           addMovie (e) {
@@ -172,6 +186,15 @@
               const settings = $('.settings_movie');
               if (settings.hasClass('hide')) {
                   settings.removeClass('hide');
+              }
+          },
+          showDropdown () {
+              $('.find-movie').addClass('active');
+          },
+          hideDropdown (event) {
+              console.log(event);
+              if (event.target.id !== 'search-movie') {
+                  $('.find-movie').removeClass('active');
               }
           },
           refresh () {

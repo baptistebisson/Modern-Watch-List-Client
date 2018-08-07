@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-nav">
             <span @click="showSidebar()" class="sidebar_toggle"><i class="material-icons">menu</i></span>
             <span class="logo"><a href="/"><img src="/static/img/logo-mwl.svg" alt=""></a></span>

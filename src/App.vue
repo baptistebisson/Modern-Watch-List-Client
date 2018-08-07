@@ -2,7 +2,7 @@
     <div>
         <div class="loader"><img src="/static/img/logo-mwl-black.svg" alt=""></div>
         <app-nav v-if="this.$route.name !== 'login'"></app-nav>
-        <div id="app" class="container">
+        <div id="app">
             <router-view/>
         </div>
         <sidebar v-if="this.$route.name !== 'login'"/>

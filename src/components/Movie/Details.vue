@@ -1,5 +1,5 @@
 <template>
-    <div v-if="movie.backdrop_path">
+    <div v-if="movie.backdrop_path" class="container">
         <div class="background-section">
             <div class="background-image" v-bind:style="{ backgroundImage: 'url(http://res.cloudinary.com/dsxar8lse/image/upload/v1527690379/movie/c/' + movie.imdb_id + '.jpg)' }">
 
@@ -85,7 +85,8 @@
                             </ul>
                         </div>
                         <div v-if="movie.user_rate !== 404" class="button-group">
-                            <button @click="deleteMovie" type="button" class="btn btn-warning btn-sm"><i class="material-icons">delete</i> Delete</button>
+                            <button @click="updateMovie" type="button" class="btn btn-outline-primary"><i class="material-icons">refresh</i> Update</button>
+                            <button @click="deleteMovie" type="button" class="btn btn-outline-danger"><i class="material-icons">delete</i> Delete</button>
                         </div>
                     </div>
                 </div>
@@ -128,7 +129,8 @@
 </template>
 
 <script>
-import router from '@/router'
+import router from '@/router';
+import swal from 'sweetalert';
 
 export default {
     beforeCreate () {
@@ -233,6 +235,19 @@ export default {
                     })
                 }
             });
+        },
+        updateMovie() {
+            swal({
+                title: "Update",
+                text: "You will update "+ this.movie.title +" data",
+                icon: "info",
+                buttons: true,
+            })
+                .then((willUpdate) => {
+                    if (willUpdate) {
+
+                    }
+                });
         }
     }
 }
