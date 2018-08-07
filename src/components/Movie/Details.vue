@@ -125,6 +125,26 @@
                 </div>
             </div>
         </div>
+
+        <div class="row hide" id="video_section">
+            <div class="col-md-10 offset-1">
+                <div class="card card-m">
+                    <h2>Videos</h2>
+                    <div class="content videos" style="min-height: 116px;">
+                        <div class="container-video">
+                            <div class="inner-video">
+                                <div class="fake-background"><i class="material-icons">play_arrow</i></div>
+                            </div>
+                        </div>
+                        <div class="container-video">
+                            <div class="inner-video">
+                                <div class="fake-background"><i class="material-icons">play_arrow</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
