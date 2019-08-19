@@ -1132,3 +1132,150 @@ Module build failed: Error: ENOENT: no such file or directory, open '/var/www/mo
 
  DONE  Compiled successfully in 582ms21:44:04
 
+
+> moviewatchlist@1.0.0 dev /var/www/moviewatchlist
+> node build/dev-server.js
+
+
+> moviewatchlist@1.0.0 dev /var/www/moviewatchlist
+> node build/dev-server.js
+
+> Starting dev server...
+ DONE  Compiled successfully in 9402ms12:33:16
+
+> Listening at http://localhost:83
+
+(node:9429) UnhandledPromiseRejectionWarning: Error: Exited with code 3
+    at ChildProcess.cp.once.code (/var/www/moviewatchlist/node_modules/opn/index.js:84:13)
+    at Object.onceWrapper (events.js:272:13)
+    at ChildProcess.emit (events.js:180:13)
+    at maybeClose (internal/child_process.js:936:16)
+    at Socket.stream.socket.on (internal/child_process.js:353:11)
+    at Socket.emit (events.js:180:13)
+    at Pipe._handle.close [as _onclose] (net.js:541:12)
+(node:9429) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:9429) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+
+> moviewatchlist@1.0.0 dev /var/www/moviewatchlist
+> node build/dev-server.js
+
+> Starting dev server...
+ DONE  Compiled successfully in 8276ms15:19:59
+
+> Listening at http://localhost:83
+
+(node:26258) UnhandledPromiseRejectionWarning: Error: Exited with code 3
+    at ChildProcess.cp.once.code (/var/www/moviewatchlist/node_modules/opn/index.js:84:13)
+    at Object.onceWrapper (events.js:272:13)
+    at ChildProcess.emit (events.js:180:13)
+    at maybeClose (internal/child_process.js:936:16)
+    at Socket.stream.socket.on (internal/child_process.js:353:11)
+    at Socket.emit (events.js:180:13)
+    at Pipe._handle.close [as _onclose] (net.js:541:12)
+(node:26258) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:26258) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+Terminated
+npm ERR! code ELIFECYCLE
+npm ERR! errno 143
+npm ERR! moviewatchlist@1.0.0 dev: `node build/dev-server.js`
+npm ERR! Exit status 143
+npm ERR! 
+npm ERR! Failed at the moviewatchlist@1.0.0 dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-09-26T13_34_03_932Z-debug.log
+
+> moviewatchlist@1.0.0 dev /var/www/moviewatchlist
+> node build/dev-server.js
+
+> Starting dev server...
+ DONE  Compiled successfully in 10031ms15:40:50
+
+> Listening at http://localhost:83
+
+(node:32244) UnhandledPromiseRejectionWarning: Error: Exited with code 3
+    at ChildProcess.cp.once.code (/var/www/moviewatchlist/node_modules/opn/index.js:84:13)
+    at Object.onceWrapper (events.js:272:13)
+    at ChildProcess.emit (events.js:180:13)
+    at maybeClose (internal/child_process.js:936:16)
+    at Socket.stream.socket.on (internal/child_process.js:353:11)
+    at Socket.emit (events.js:180:13)
+    at Pipe._handle.close [as _onclose] (net.js:541:12)
+(node:32244) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:32244) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+ WAIT  Compiling...09:47:35
+
+ DONE  Compiled successfully in 12594ms09:47:51
+
+ WAIT  Compiling...09:47:51
+
+ DONE  Compiled successfully in 4039ms09:47:55
+
+ WAIT  Compiling...10:25:48
+
+ DONE  Compiled successfully in 6372ms10:25:54
+
+ WAIT  Compiling...10:25:55
+
+ DONE  Compiled successfully in 2386ms10:25:57
+
+ WAIT  Compiling...11:13:58
+
+ DONE  Compiled successfully in 20602ms11:14:19
+
+ WAIT  Compiling...11:14:20
+
+ DONE  Compiled successfully in 9607ms11:14:29
+
+ WAIT  Compiling...11:14:30
+
+ DONE  Compiled successfully in 1475ms11:14:31
+
+ WAIT  Compiling...11:14:32
+
+ DONE  Compiled successfully in 1240ms11:14:33
+
+ WAIT  Compiling...11:14:34
+
+ DONE  Compiled successfully in 863ms11:14:35
+
+ WAIT  Compiling...11:14:35
+
+ DONE  Compiled successfully in 767ms11:14:36
+
+ WAIT  Compiling...11:14:36
+
+ DONE  Compiled successfully in 742ms11:14:37
+
+ WAIT  Compiling...11:14:37
+
+ DONE  Compiled successfully in 2705ms11:14:40
+
+ WAIT  Compiling...11:14:41
+
+ DONE  Compiled successfully in 1300ms11:14:42
+
+ WAIT  Compiling...11:14:42
+
+ DONE  Compiled successfully in 1447ms11:14:44
+
+ WAIT  Compiling...11:14:44
+
+ DONE  Compiled successfully in 385ms11:14:45
+
+ WAIT  Compiling...11:15:16
+
+ DONE  Compiled successfully in 4754ms11:15:22
+
+Terminated
+npm ERR! code ELIFECYCLE
+npm ERR! errno 143
+npm ERR! moviewatchlist@1.0.0 dev: `node build/dev-server.js`
+npm ERR! Exit status 143
+npm ERR! 
+npm ERR! Failed at the moviewatchlist@1.0.0 dev script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-01-03T14_58_01_311Z-debug.log

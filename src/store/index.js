@@ -9,10 +9,11 @@ Vue.use(VueResource);
 const state = {
     isLogged: !!localStorage.getItem('token'),
     savedData: null,
+    tvData: null,
     popularMovies: null,
     validToken: false,
     isLoaded: false,
-}
+};
 
 const mutations = {
     LOGIN_USER(state) {
@@ -27,6 +28,10 @@ const mutations = {
         state.savedData = data
     },
     
+    updateTvData(state, data) {
+        state.tvData = data
+    },
+    
     updatePopularMovie(state, data) {
         state.popularMovies = data
     },
@@ -34,7 +39,7 @@ const mutations = {
     updateValidToken(state, data) {
         state.validToken = data
     }
-}
+};
 
 export default new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production',
@@ -56,11 +61,11 @@ export default new Vuex.Store({
                         'position': e['pivot']['position']
                     });
                 });
-                Vue.http.post('https://api.baptiste-bisson.com/movie/refresh', {
+                Vue.http.post(process.env.API_URL + '/movie/refresh', {
                     movies: list,
                 }).then((response) => {
                     if (response.body === 'true') {
-                        Vue.http.get('https://api.baptiste-bisson.com/movie/get').then((response) => {
+                        Vue.http.get(process.env.API_URL + '/movie/get').then((response) => {
                             commit('updateSavedData', response.body)
                             localStorage.setItem('movies', JSON.stringify(response.body));
                         }, () => {
@@ -71,17 +76,56 @@ export default new Vuex.Store({
 
                 })
             } else {
-                Vue.http.get('https://api.baptiste-bisson.com/movie/get').then((response) => {
+                Vue.http.get(process.env.API_URL + '/movie/get').then((response) => {
                     commit('updateSavedData', response.body);
                     localStorage.setItem('movies', JSON.stringify(response.body));
                 }, () => {
 
                 })
             }
+    
+            // Get tv shows
+            if (localStorage.getItem("tv") && params.refresh === false) {
+                const tv = JSON.parse(localStorage.getItem("tv"));
+                commit('updateTvData', tv);
+                //We need to check if our local storage is up to date
+                const list = [];
+                tv.forEach(function(e) {
+                    list.push({
+                        'id': e['id'],
+                        'position': e['pivot']['position']
+                    });
+                });
+                Vue.http.post(process.env.API_URL + '/tv/refresh', {
+                    tv: list,
+                }).then((response) => {
+                    if (response.body === 'true') {
+                        Vue.http.get(process.env.API_URL + '/tv/get').then((response) => {
+                            if (response.status !== 204) {
+                                commit('updateTvData', response.body);
+                                localStorage.setItem('tv', JSON.stringify(response.body));
+                            }
+                        }, () => {
+                        
+                        })
+                    }
+                }, () => {
+            
+                })
+            } else {
+                Vue.http.get(process.env.API_URL + '/tv/get').then((response) => {
+                    if (response.status !== 204) {
+                        commit('updateSavedData', response.body);
+                        localStorage.setItem('tv', JSON.stringify(response.body));
+                    }
+                }, () => {
+                
+                })
+            }
             
             // Popular movies
             if (!localStorage.getItem("popular_movies")) {
-                Vue.http.get('https://api.baptiste-bisson.com/movie/popular').then((response) => {
+                Vue.http.get(process.env.API_URL + '/movie/popular').then((response) => {
                     commit('updatePopularMovie', response.body);
                     localStorage.setItem('popular_movies', JSON.stringify(response.body));
                 }, () => {
@@ -95,7 +139,7 @@ export default new Vuex.Store({
         getPopularMovies({commit}, params) {
             // Popular movies
             if (!localStorage.getItem("popular_movies")) {
-                Vue.http.get('https://api.baptiste-bisson.com/movie/popular').then((response) => {
+                Vue.http.get(process.env.API_URL + '/movie/popular').then((response) => {
                     commit('updatePopularMovie', response.body);
                     localStorage.setItem('popular_movies', JSON.stringify(response.body));
                 }, () => {
@@ -109,7 +153,7 @@ export default new Vuex.Store({
         validToken({
             commit
         }) {
-            Vue.http.get('https://api.baptiste-bisson.com/auth/valid').then((response) => {
+            Vue.http.get(process.env.API_URL + '/auth/valid').then((response) => {
                 commit('updateValidToken', true)
             }, () => {
 

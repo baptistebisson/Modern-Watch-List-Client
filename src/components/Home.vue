@@ -63,20 +63,18 @@
                 </div>
 
                 <div class="cards_list">
-                    <div class="item" v-for="(value, key, index) in filteredMovies">
-                        <div class="movie_card" :data-id="value.id">
-                            <div class="cover">
-                                <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
-                                    <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
-                                </router-link>
-                            </div>
-                            <article>
-                                <h1>{{ value.title }}</h1>
-                                <span>{{ value.release_date.slice(0,4) }}</span>
-                                <span v-if="value.pivot.rating === 0 && !upcoming(value.release_date)" class="new-item" title="New movie"></span>
-                                <span v-else-if="upcoming(value.release_date)" class="upcoming-item" title="Upcoming movie"></span>
-                            </article>
+                    <div class="item_card" v-for="(value, key, index) in filteredMovies" :data-id="value.id">
+                        <div class="cover">
+                            <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
+                                <img v-bind:src="'https://res.cloudinary.com/dsxar8lse/image/upload/c_scale,h_278,w_185/v1526292604/movie/p/'+value.image_api" v-bind:alt="value.title">
+                            </router-link>
                         </div>
+                        <article>
+                            <h1>{{ value.title }}</h1>
+                            <span>{{ value.release_date.slice(0,4) }}</span>
+                            <span v-if="value.pivot.rating === 0 && !upcoming(value.release_date)" class="new-item" title="New movie"></span>
+                            <span v-else-if="upcoming(value.release_date)" class="upcoming-item" title="Upcoming movie"></span>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -127,7 +125,7 @@
 
                   this.loader = true;
                   this.infoError = false;
-                  this.$http.post('https://api.baptiste-bisson.com/movie/search', {
+                  this.$http.post(process.env.API_URL + '/movie/search', {
                       title: name,
                   }).then((response) => {
                       // Content is loaded
@@ -156,7 +154,7 @@
               })
                   .then((willAdd) => {
                       if (willAdd) {
-                          this.$http.post('https://api.baptiste-bisson.com/movie/create', {
+                          this.$http.post(process.env.API_URL + '/movie/create', {
                               id: e.id,
                               user_id: JSON.parse(localStorage.getItem('user')).id
                           }).then((response) => {
@@ -181,7 +179,7 @@
               $('#search-movie').val('');
           },
           getMovies () {
-              this.$http.get('https://api.baptiste-bisson.com/movie/get').then((response) => {
+              this.$http.get(process.env.API_URL + '/movie/get').then((response) => {
                   this.moviesUser = response.body
                   // localStorage.setItem('movies', JSON.stringify(response.body))
               }, () => {

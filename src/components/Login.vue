@@ -40,20 +40,20 @@
         },
         methods: {
             login () {
-                this.loader = true
-                this.infoError = false
-                this.$http.post('https://api.baptiste-bisson.com/auth/login', {
+                this.loader = true;
+                this.infoError = false;
+                this.$http.post(process.env.API_URL + '/auth/login', {
                     email: this.email,
                     password: this.password
                 }).then((response) => {
-                    localStorage.setItem('token', response.body.token)
-                    localStorage.setItem('user', JSON.stringify(response.body.user))
-                    store.commit('LOGIN_USER')
-                    router.push('/')
+                    localStorage.setItem('token', response.body.token);
+                    localStorage.setItem('user', JSON.stringify(response.body.user));
+                    store.commit('LOGIN_USER');
+                    router.push('/');
                 }, () => {
-                    this.infoError = true
-                    this.loader = false
-                    this.password = ''
+                    this.infoError = true;
+                    this.loader = false;
+                    this.password = '';
                 })
             }
         }

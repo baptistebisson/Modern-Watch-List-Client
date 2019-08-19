@@ -64,6 +64,20 @@ const router = new Router({
                 require(['@/components/Movie/Popular.vue'], resolve)
             }
         },
+        {
+            path: '/tv',
+            name: 'tv',
+            component: function (resolve) {
+                require(['@/components/Tv/Home.vue'], resolve)
+            }
+        },
+        {
+            path: '/tv/details/:id',
+            name: 'tv/details',
+            component: function (resolve) {
+                require(['@/components/Tv/Details.vue'], resolve)
+            }
+        },
     ],
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {
@@ -86,7 +100,7 @@ router.beforeEach((to, from, next) => {
         } else {
             next('login');
         }
-        Vue.http.get('https://api.baptiste-bisson.com/auth/valid').then((response) => {
+        Vue.http.get(process.env.API_URL + '/auth/valid').then((response) => {
         
         }, () => {
         

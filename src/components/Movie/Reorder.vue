@@ -51,7 +51,7 @@
                 }
 
                 const notyf = new Notyf();
-                this.$http.post('https://api.baptiste-bisson.com/movie/move', {
+                this.$http.post(process.env.API_URL + '/movie/move', {
                     movies: newList,
                 }).then((response) => {
                     if (response.body.error === false) {

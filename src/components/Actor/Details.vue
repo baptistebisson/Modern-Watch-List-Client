@@ -123,7 +123,7 @@ export default {
         }
     },
     created: function() {
-        this.$http.post('https://api.baptiste-bisson.com/actor/details', {
+        this.$http.post(process.env.API_URL + '/actor/details', {
             id: this.$route.params.id,
         }).then((response) => {
             this.actor = response.body;
@@ -138,7 +138,7 @@ export default {
     },
     methods: {
         getDetails(api_id) {
-            this.$http.get('https://api.baptiste-bisson.com/actor/credits', {
+            this.$http.get(process.env.API_URL + '/actor/credits', {
                 params: {
                     id: api_id
                 }

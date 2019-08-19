@@ -76,11 +76,11 @@
                                     <span class="titre">Country</span>
                                     <span class="data">{{ movie.country }}</span>
                                 </li>
-                                <li v-if="movie.budget !== 0">
+                                <li v-if="movie.budget !== null">
                                     <span class="titre">Budget</span>
                                     <span class="data">{{ formatPrice(movie.budget) }}$</span>
                                 </li>
-                                <li v-if="movie.gross !== 0">
+                                <li v-if="movie.gross !== null">
                                     <span class="titre">Gross</span>
                                     <span class="data">{{ formatPrice(movie.gross) }}$</span>
                                 </li>
@@ -94,10 +94,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="movie.actors.length !== 0">
             <h2 class="title_center">Actors</h2>
             <div class="section_actors">
-                <div class="people_card" v-for="(value, key, index) in movie.actors">
+                <div class="item_card" v-for="(value, key, index) in movie.actors">
                     <router-link :to="{ name: 'actor/details', params: { id: value.id }}">
                         <div class="content">
                             <img v-if="value.image_api === '.jpg'" src="https://res.cloudinary.com/dsxar8lse/image/upload/v1526302908/movie/a/no_picture.jpg" alt="">
@@ -111,10 +111,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="movie.directors.length !== 0">
             <h2 class="title_center mt-30">Directors</h2>
             <div class="section_directors">
-                <div class="people_card" v-for="(value, key, index) in movie.directors">
+                <div class="item_card" v-for="(value, key, index) in movie.directors">
                     <router-link :to="{ name: 'movie/details', params: { id: value.id }}">
                         <div class="content">
                             <img v-if="value.image_api === 'no_picture.jpg'" src="https://res.cloudinary.com/dsxar8lse/image/upload/v1526302908/movie/a/no_picture.jpg" alt="">
@@ -165,7 +165,7 @@ export default {
         }
     },
     created: function() {
-        this.$http.post('https://api.baptiste-bisson.com/movie/details', {
+        this.$http.post(process.env.API_URL + '/movie/details', {
             id: this.$route.params.id,
         }).then((response) => {
             this.movie = response.body;
@@ -184,6 +184,9 @@ export default {
         readable(duration) {
             var hours = Math.floor(duration/60);
             var minutes = duration % 60;
+            if (hours === 0) {
+                return minutes + 'm';
+            }
             return hours + 'h ' + minutes + 'm';
         },
         formatPrice(value) {
@@ -193,7 +196,7 @@ export default {
         addMark(mark) {
             var notyf = new Notyf();
             if (mark !== this.movie.user_rate) {
-                this.$http.post('https://api.baptiste-bisson.com/user/mark', {
+                this.$http.post(process.env.API_URL + '/user/mark', {
                     id: this.movie.id,
                     type: "movie",
                     mark: mark
@@ -211,7 +214,7 @@ export default {
         },
         addToList() {
             var notyf = new Notyf();
-            this.$http.post('https://api.baptiste-bisson.com/user/add', {
+            this.$http.post(process.env.API_URL + '/user/add', {
                 id: this.movie.id,
                 type: "movie",
             }).then((response) => {
@@ -234,7 +237,7 @@ export default {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    this.$http.post('https://api.baptiste-bisson.com/user/delete', {
+                    this.$http.post(process.env.API_URL + '/user/delete', {
                         id: this.movie.id,
                         type: "movie",
                     }, {
