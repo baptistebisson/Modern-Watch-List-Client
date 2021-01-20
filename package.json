@@ -15,7 +15,7 @@
   "dependencies": {
     "chart.js": "^2.7.2",
     "debounce": "^1.1.0",
-    "gsap": "^1.20.4",
+    "gsap": "^3.6.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.3",
     "notyf": "^2.0.1",
