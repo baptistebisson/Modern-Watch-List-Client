@@ -16,7 +16,7 @@
     "chart.js": "^2.7.2",
     "debounce": "^1.1.0",
     "gsap": "^1.20.4",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "node-sass": "^4.9.3",
     "notyf": "^2.0.1",
     "numeral": "^2.0.6",
